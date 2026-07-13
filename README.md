@@ -2,7 +2,7 @@
 
 GitHub Pages 静态日报站点。
 
-访问地址：https://ymzhuuuuufz0313.github.io/daily-record/
+访问地址：https://ymzhuuuuufz0313l.github.io/daily-record/
 
 ## 更新
 
