@@ -315,7 +315,7 @@ def render_html(file_list, contents):
       if (fileEl) fileEl.classList.add("active");
 
       const raw = FILE_CONTENTS[path] || "文件不存在";
-      const title = path.split("/").pop().replace(/\.md$/i, "");
+      const title = path.split("/").pop().replace(/\\.md$/i, "");
       document.getElementById("content").innerHTML =
         `<h1>${{title}}</h1><hr>` + marked.parse(raw);
       document.title = title + " - 每日记录";
