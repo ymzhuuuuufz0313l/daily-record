@@ -359,7 +359,7 @@ def render_html(file_list, contents):
     with open(OUTPUT_HTML, "w", encoding="utf-8") as fh:
         fh.write(html)
     print(f"Generated: {OUTPUT_HTML}")
-    print(f"Total files: {len(file_list)}")
+    print(r"Total files: " + str(len(file_list)))
 
 
 def main():
