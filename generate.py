@@ -167,6 +167,7 @@ def render_html(file_list, contents):
       overflow-y: auto;
       padding: 8px 0;
     }}
+    .dir-children {{ padding-left: 18px; }}
     .dir, .file {{
       padding: 5px 16px;
       cursor: pointer;
