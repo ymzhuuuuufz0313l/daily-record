@@ -317,8 +317,11 @@ def render_html(file_list, contents):
 
       const raw = FILE_CONTENTS[path] || "文件不存在";
       const title = path.split("/").pop().replace(/\\.md$/i, "");
-      document.getElementById("content").innerHTML =
-        `<h1>${{title}}</h1><hr>` + marked.parse(raw);
+      const html = `<h1>${{title}}</h1><hr>` + marked.parse(raw);
+      document.getElementById("content").innerHTML = html;
+      document.querySelectorAll("#content h1, #content h2, #content h3, #content h4").forEach(h => {{
+        h.textContent = h.textContent.replace(/^\\s*[一二三四五六七八九十]+\\s*[、.．]\\s*/, "");
+      }});
       document.title = title + " - 每日记录";
       window.location.hash = encodeURIComponent(path);
     }}
