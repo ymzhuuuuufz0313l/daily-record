@@ -226,6 +226,47 @@ def render_html(file_list, contents):
       background: var(--accent-soft);
       color: var(--text);
     }}
+    .content img {{
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 12px auto;
+      border-radius: 6px;
+      cursor: zoom-in;
+    }}
+    .lightbox {{
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 12, 16, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }}
+    .lightbox img {{
+      max-width: 95vw;
+      max-height: 95vh;
+      cursor: zoom-in;
+      transform-origin: center center;
+    }}
+    .lightbox-bar {{
+      position: fixed;
+      top: 14px;
+      right: 18px;
+      display: flex;
+      gap: 8px;
+      z-index: 1001;
+    }}
+    .lightbox-bar button {{
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 12px;
+      cursor: pointer;
+    }}
+    .lightbox-bar button:hover {{ background: var(--accent-soft); }}
     .toolbar {{
       position: fixed;
       top: 14px;
@@ -322,8 +363,47 @@ def render_html(file_list, contents):
       document.querySelectorAll("#content h1, #content h2, #content h3, #content h4").forEach(h => {{
         h.textContent = h.textContent.replace(/^\\s*[一二三四五六七八九十]+\\s*[、.．]\\s*/, "");
       }});
+      document.querySelectorAll("#content img").forEach(im => {{
+        im.addEventListener("click", () => openLightbox(im.src));
+      }});
       document.title = title + " - 每日记录";
       window.location.hash = encodeURIComponent(path);
+    }}
+
+    let lbScale = 1;
+    function openLightbox(src) {{
+      let lb = document.getElementById("lightbox");
+      if (!lb) {{
+        lb = document.createElement("div");
+        lb.id = "lightbox";
+        lb.className = "lightbox";
+        lb.innerHTML = '<img id="lightboxImg" src="">' +
+          '<div class="lightbox-bar">' +
+          '<button onclick="lbZoom(1.25)">＋ 放大</button>' +
+          '<button onclick="lbZoom(0.8)">－ 缩小</button>' +
+          '<button onclick="lbReset()">1:1</button>' +
+          '<button onclick="closeLightbox()">✕ 关闭</button>' +
+          '</div>';
+        document.body.appendChild(lb);
+        lb.addEventListener("click", (e) => {{ if (e.target === lb) closeLightbox(); }});
+        document.addEventListener("keydown", (e) => {{ if (e.key === "Escape") closeLightbox(); }});
+      }}
+      const img = document.getElementById("lightboxImg");
+      img.src = src;
+      lbScale = 1;
+      img.style.transform = "scale(1)";
+      lb.style.display = "flex";
+    }}
+    function lbZoom(f) {{
+      lbScale = Math.min(8, Math.max(0.25, lbScale * f));
+      document.getElementById("lightboxImg").style.transform = "scale(" + lbScale + ")";
+    }}
+    function lbReset() {{
+      lbScale = 1;
+      document.getElementById("lightboxImg").style.transform = "scale(1)";
+    }}
+    function closeLightbox() {{
+      document.getElementById("lightbox").style.display = "none";
     }}
 
     function filterFiles(keyword) {{
