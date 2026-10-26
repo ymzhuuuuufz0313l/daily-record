@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 940" font-family="'Microsoft YaHei','Segoe UI',sans-serif">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#143354" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="940" fill="#0b1f33"/>
+  <rect width="1400" height="940" fill="url(#grid)"/>
+
+  <!-- ============ HEADER ============ -->
+  <text x="40" y="42" font-size="25" font-weight="bold" fill="#eaf4ff">芯片器件模拟方案 · 无 FPGA 条件下的三层仿真体系</text>
+  <text x="40" y="66" font-size="13" fill="#8fb3d4">Icarus 器件级 stub 仿真 + VCS UVM 芯片级验证 + golden model 数字核心证明 · 全程无 license 障碍</text>
+  <line x1="40" y1="78" x2="1360" y2="78" stroke="#2c517a" stroke-width="1.5"/>
+
+  <!-- ============ LAYER 3: golden model (top) ============ -->
+  <g>
+    <rect x="40" y="90" width="1320" height="210" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <rect x="40" y="90" width="5" height="210" rx="2" fill="#4fd1ff">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="60" y="115" font-size="16" font-weight="bold" fill="#eaf4ff">第 3 层 · golden model — 数字核心正确性证明</text>
+    <line x1="55" y1="125" x2="1345" y2="125" stroke="#2c517a"/>
+
+    <!-- activity dot -->
+    <circle cx="1340" cy="108" r="5" fill="#4fd1ff">
+      <animate attributeName="r" values="4;7;4" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Left: mechanism -->
+    <rect x="55" y="135" width="705" height="72" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="155" font-size="13" font-weight="bold" fill="#4fd1ff">机制</text>
+    <text x="68" y="175" font-size="12" fill="#c9dcf0">+incdir+ 遮蔽 intf_connect.sv</text>
+    <text x="68" y="193" font-size="12" fill="#c9dcf0">cmodel 模拟输出直接驱动 ana_SIM_OUT</text>
+
+    <rect x="55" y="213" width="705" height="72" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="233" font-size="13" font-weight="bold" fill="#4fd1ff">10bit 编码</text>
+    <text x="68" y="253" font-size="12" fill="#c9dcf0">bit[9]=chopper · bit[8]=polarity · bit[7:0]=value</text>
+    <text x="68" y="271" font-size="12" fill="#c9dcf0">gen_hex.py：analog txt → hex · $readmemh 加载</text>
+
+    <!-- Right: results -->
+    <rect x="780" y="135" width="570" height="54" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="793" y="157" font-size="12" font-weight="bold" fill="#eaf4ff">M29：H4INV=0 → TEST CASE PASSED</text>
+    <text x="793" y="177" font-size="11" fill="#8fb3d4">证明数字核心 + scoreboard 逻辑正确</text>
+
+    <rect x="780" y="195" width="570" height="54" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="793" y="217" font-size="12" font-weight="bold" fill="#eaf4ff">M55：50err 506 case 可修集合 = 0/56</text>
+    <text x="793" y="237" font-size="11" fill="#8fb3d4">cmodel 宽度依赖（1920→200 · 1440/2880/3840→0）</text>
+
+    <rect x="780" y="255" width="570" height="54" rx="5" fill="#155e46" stroke="#7ce7a6">
+      <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="793" y="277" font-size="12" font-weight="bold" fill="#d9f7e8">golden model 价值</text>
+    <text x="793" y="297" font-size="11" fill="#a7e6c8">证明数字核心正确 + 修复 PASS case · 不修模拟本质问题</text>
+  </g>
+
+  <!-- ============ GAP 1: L3 ↔ L2 flowing lines ============ -->
+  <g>
+    <line x1="250" y1="330" x2="250" y2="300" stroke="#4fd1ff" stroke-width="2" stroke-dasharray="10 8">
+      <animate attributeName="stroke-dashoffset" values="0;-36" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <circle r="4" fill="#4fd1ff">
+      <animateMotion path="M250 330 L250 300" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="262" y="319" font-size="11" fill="#4fd1ff">激励 / 数据</text>
+
+    <line x1="1100" y1="300" x2="1100" y2="330" stroke="#ffd166" stroke-width="2" stroke-dasharray="10 8">
+      <animate attributeName="stroke-dashoffset" values="0;-36" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <circle r="4" fill="#ffd166">
+      <animateMotion path="M1100 300 L1100 330" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1112" y="319" font-size="11" fill="#ffd166">结果 / 判定</text>
+  </g>
+
+  <!-- ============ LAYER 2: VCS UVM (middle) ============ -->
+  <g>
+    <rect x="40" y="330" width="1320" height="210" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <rect x="40" y="330" width="5" height="210" rx="2" fill="#7ce7a6">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="60" y="355" font-size="16" font-weight="bold" fill="#eaf4ff">第 2 层 · VCS O-2018.09-1 + UVM 1.1（VM IC_EDA）— 芯片级验证</text>
+    <line x1="55" y1="365" x2="1345" y2="365" stroke="#2c517a"/>
+
+    <circle cx="1340" cy="348" r="5" fill="#7ce7a6">
+      <animate attributeName="r" values="4;7;4" dur="1.6s" begin="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Left: mechanism -->
+    <rect x="55" y="375" width="705" height="72" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="395" font-size="13" font-weight="bold" fill="#7ce7a6">chip_tb_top 全片 testbench</text>
+    <text x="68" y="415" font-size="12" fill="#c9dcf0">HK1V11.f 全 ASIC RTL + macro.f + isprx_env</text>
+    <text x="68" y="433" font-size="12" fill="#c9dcf0">isprx_env：agents / checkers / cmodel</text>
+
+    <rect x="55" y="453" width="705" height="72" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="473" font-size="13" font-weight="bold" fill="#7ce7a6">编译与跑通</text>
+    <text x="68" y="493" font-size="12" fill="#c9dcf0">编译 0 错误（Verdi KDB 0 err）</text>
+    <text x="68" y="511" font-size="12" fill="#c9dcf0">t_8b1lane：UVM_ERROR=0 · TEST CASE PASSED（43.8s CPU）</text>
+
+    <!-- Right: results -->
+    <rect x="780" y="375" width="570" height="54" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="793" y="397" font-size="12" font-weight="bold" fill="#eaf4ff">cmodel pic_process</text>
+    <text x="793" y="417" font-size="11" fill="#8fb3d4">生成 200 个参考 PPM（1920 宽度）</text>
+
+    <rect x="780" y="435" width="570" height="54" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="793" y="457" font-size="12" font-weight="bold" fill="#eaf4ff">scoreboard 对照</text>
+    <text x="793" y="477" font-size="11" fill="#8fb3d4">ana_SIM_OUT 判 PASS/FAIL</text>
+
+    <rect x="780" y="495" width="570" height="54" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="793" y="517" font-size="12" font-weight="bold" fill="#eaf4ff">632-case 全量回归</text>
+    <text x="793" y="537" font-size="11" fill="#8fb3d4">见图 A</text>
+  </g>
+
+  <!-- ============ GAP 2: L2 ↔ L1 flowing lines ============ -->
+  <g>
+    <line x1="250" y1="570" x2="250" y2="540" stroke="#4fd1ff" stroke-width="2" stroke-dasharray="10 8">
+      <animate attributeName="stroke-dashoffset" values="0;-36" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <circle r="4" fill="#4fd1ff">
+      <animateMotion path="M250 570 L250 540" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="262" y="559" font-size="11" fill="#4fd1ff">激励 / 数据</text>
+
+    <line x1="1100" y1="540" x2="1100" y2="570" stroke="#ffd166" stroke-width="2" stroke-dasharray="10 8">
+      <animate attributeName="stroke-dashoffset" values="0;-36" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <circle r="4" fill="#ffd166">
+      <animateMotion path="M1100 540 L1100 570" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1112" y="559" font-size="11" fill="#ffd166">结果 / 判定</text>
+  </g>
+
+  <!-- ============ LAYER 1: Icarus (bottom) ============ -->
+  <g>
+    <rect x="40" y="570" width="1320" height="210" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <rect x="40" y="570" width="5" height="210" rx="2" fill="#ffd166">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+    </rect>
+    <text x="60" y="595" font-size="16" font-weight="bold" fill="#eaf4ff">第 1 层 · Icarus Verilog 12.0（本机开源，无 license）— 器件级冒烟</text>
+    <line x1="55" y1="605" x2="1345" y2="605" stroke="#2c517a"/>
+
+    <circle cx="1340" cy="588" r="5" fill="#ffd166">
+      <animate attributeName="r" values="4;7;4" dur="1.6s" begin="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Left: mechanism -->
+    <rect x="55" y="615" width="705" height="72" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="635" font-size="13" font-weight="bold" fill="#ffd166">全 top 编译</text>
+    <text x="68" y="655" font-size="12" fill="#c9dcf0">S2C_VU440_TOP · 59 个 RTL 文件 + 39 个行为 stub</text>
+    <text x="68" y="673" font-size="12" fill="#c9dcf0">本机开源 · 无 license</text>
+
+    <rect x="55" y="693" width="705" height="72" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="713" font-size="13" font-weight="bold" fill="#ffd166">stub 策略</text>
+    <text x="68" y="733" font-size="12" fill="#c9dcf0">ASIC 标准单元（AND2X2/BUFX/INVX2/CKLNQD/GCKES/CLKMUX）→ 功能模型</text>
+    <text x="68" y="751" font-size="12" fill="#c9dcf0">FPGA 原语（ILA×5 / PLL / GXB_PHY_TOP 63 端口 / MACRO_TOP）→ 黑盒</text>
+
+    <!-- Right: results -->
+    <rect x="780" y="615" width="570" height="40" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="793" y="633" font-size="12" font-weight="bold" fill="#eaf4ff">smoke 5200ns + VCD 波形</text>
+    <text x="793" y="649" font-size="11" fill="#8fb3d4">器件级冒烟</text>
+
+    <rect x="780" y="659" width="570" height="40" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="793" y="677" font-size="12" font-weight="bold" fill="#eaf4ff">功能 tb 101 个信号活跃</text>
+    <text x="793" y="693" font-size="11" fill="#8fb3d4">功能验证</text>
+
+    <rect x="780" y="703" width="570" height="40" rx="5" fill="#10304f" stroke="#3f6b96"/>
+    <text x="793" y="721" font-size="12" font-weight="bold" fill="#eaf4ff">420b 长码真实 PASS/FAIL 判定</text>
+    <text x="793" y="737" font-size="11" fill="#8fb3d4">真实判定</text>
+
+    <rect x="780" y="747" width="570" height="40" rx="5" fill="#10304f" stroke="#ff7b72">
+      <animate attributeName="stroke-opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="793" y="765" font-size="12" font-weight="bold" fill="#ff7b72">抓出 1 个潜在 RTL bug</text>
+    <text x="793" y="781" font-size="11" fill="#8fb3d4">digital_top.v:804 .FSEL 连接缺逗号</text>
+  </g>
+
+  <!-- ============ BOTTOM: core conclusion ============ -->
+  <g>
+    <rect x="40" y="795" width="1320" height="55" rx="8" fill="#155e46" stroke="#7ce7a6" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="700" y="818" font-size="14" font-weight="bold" fill="#d9f7e8" text-anchor="middle">器件模拟方案成功：无 FPGA 也能器件级 + 芯片级 + 正确性证明三层闭环</text>
+    <text x="700" y="840" font-size="12" fill="#a7e6c8" text-anchor="middle">Icarus 器件级 stub + VCS UVM 芯片级 + golden model 数字核心证明 · 全程无 license 障碍</text>
+  </g>
+
+  <!-- Corner note -->
+  <text x="40" y="878" font-size="11" fill="#5f85ab">39 stub = 标准单元功能模型 + FPGA 原语黑盒</text>
+
+  <!-- ============ FOOTER ============ -->
+  <line x1="40" y1="912" x2="1360" y2="912" stroke="#2c517a" stroke-width="1"/>
+  <text x="40" y="932" font-size="11" fill="#5f85ab">三层仿真体系：Icarus 12.0 器件级冒烟（本机开源）→ VCS + UVM 芯片级验证（VM IC_EDA）→ golden model 数字核心证明 · 无 FPGA · 无 license 障碍</text>
+</svg>

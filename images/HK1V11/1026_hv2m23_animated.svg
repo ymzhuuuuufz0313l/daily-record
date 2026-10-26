@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 940" font-family="'Microsoft YaHei','Segoe UI',sans-serif">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#143354" stroke-width="1"/>
+    </pattern>
+    <marker id="arrAmber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 Z" fill="#ffd166"/>
+    </marker>
+    <marker id="arrRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 Z" fill="#ff7b72"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 Z" fill="#7ce7a6"/>
+    </marker>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1400" height="940" fill="#0b1f33"/>
+  <rect width="1400" height="940" fill="url(#grid)"/>
+
+  <!-- ============ HEADER ============ -->
+  <text x="40" y="42" font-size="25" font-weight="bold" fill="#eaf4ff">HV2M23 第二芯片 · 数字 I2C 核心 98% 正确</text>
+  <text x="40" y="66" font-size="13" fill="#8fb3d4">TCON 姊妹芯片（13GB / 330+ RTL / 427 test）· 纯数字 I2C 批量验证 + 串行数据路径 PPM 依赖闭环</text>
+  <line x1="40" y1="78" x2="1360" y2="78" stroke="#2c517a" stroke-width="1.5"/>
+
+  <!-- header badge -->
+  <g filter="url(#glow)">
+    <rect x="1150" y="18" width="210" height="46" rx="8" fill="none" stroke="#7ce7a6" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="1;0.35;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="1255" y="38" font-size="14" font-weight="bold" fill="#7ce7a6" text-anchor="middle">数字 I2C 核心</text>
+    <text x="1255" y="55" font-size="11" fill="#a7e6c8" text-anchor="middle">98.0% 寄存器读正确</text>
+  </g>
+
+  <!-- ============ PANEL 1: 芯片概况 (top-left) ============ -->
+  <g>
+    <rect x="40" y="95" width="400" height="375" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <text x="60" y="122" font-size="16" font-weight="bold" fill="#eaf4ff">芯片概况</text>
+    <line x1="55" y1="132" x2="425" y2="132" stroke="#2c517a"/>
+    <circle cx="418" cy="112" r="5" fill="#4fd1ff">
+      <animate attributeName="r" values="4;7;4" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- stat chips -->
+    <g>
+      <rect x="55" y="150" width="110" height="56" rx="6" fill="#10304f" stroke="#3f6b96"/>
+      <text x="110" y="176" font-size="20" font-weight="bold" fill="#4fd1ff" text-anchor="middle">13GB</text>
+      <text x="110" y="194" font-size="11" fill="#8fb3d4" text-anchor="middle">工程规模</text>
+
+      <rect x="175" y="150" width="110" height="56" rx="6" fill="#10304f" stroke="#3f6b96"/>
+      <text x="230" y="176" font-size="20" font-weight="bold" fill="#4fd1ff" text-anchor="middle">330+</text>
+      <text x="230" y="194" font-size="11" fill="#8fb3d4" text-anchor="middle">RTL 文件</text>
+
+      <rect x="295" y="150" width="110" height="56" rx="6" fill="#10304f" stroke="#3f6b96"/>
+      <text x="350" y="176" font-size="20" font-weight="bold" fill="#4fd1ff" text-anchor="middle">427</text>
+      <text x="350" y="194" font-size="11" fill="#8fb3d4" text-anchor="middle">test</text>
+    </g>
+
+    <!-- subsystems -->
+    <rect x="55" y="218" width="370" height="80" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="240" font-size="13" font-weight="bold" fill="#7ce7a6">子系统</text>
+    <text x="68" y="262" font-size="12" fill="#c9dcf0">DRD · OD · LVDS · I2C · CSPI · GAMMA</text>
+    <text x="68" y="282" font-size="11" fill="#8fb3d4">6 大数据通路子系统</text>
+
+    <!-- flow -->
+    <rect x="55" y="310" width="370" height="92" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="332" font-size="13" font-weight="bold" fill="#ffd166">流程（与 HK1V11 同构）</text>
+    <g font-size="12" font-weight="bold" text-anchor="middle">
+      <rect x="55"  y="344" width="60" height="34" rx="5" fill="#0e2a47" stroke="#3f6b96"/><text x="85"  y="366" fill="#eaf4ff">RTL</text>
+      <rect x="129" y="344" width="60" height="34" rx="5" fill="#0e2a47" stroke="#3f6b96"/><text x="159" y="366" fill="#eaf4ff">UVM</text>
+      <rect x="203" y="344" width="60" height="34" rx="5" fill="#0e2a47" stroke="#3f6b96"/><text x="233" y="366" fill="#eaf4ff">DC</text>
+      <rect x="277" y="344" width="60" height="34" rx="5" fill="#0e2a47" stroke="#3f6b96"/><text x="307" y="366" fill="#eaf4ff">STA</text>
+      <rect x="351" y="344" width="60" height="34" rx="5" fill="#0e2a47" stroke="#3f6b96"/><text x="381" y="366" fill="#eaf4ff">PTPX</text>
+    </g>
+    <g stroke="#4fd1ff" stroke-width="1.5" marker-end="url(#arrGreen)">
+      <line x1="117" y1="361" x2="127" y2="361" stroke="#4fd1ff"/>
+      <line x1="191" y1="361" x2="201" y2="361" stroke="#4fd1ff"/>
+      <line x1="265" y1="361" x2="275" y2="361" stroke="#4fd1ff"/>
+      <line x1="339" y1="361" x2="349" y2="361" stroke="#4fd1ff"/>
+    </g>
+    <text x="68" y="416" font-size="11" fill="#8fb3d4">与 HK1V11 同构 · 5 段数字流程</text>
+  </g>
+
+  <!-- ============ PANEL 2: I2C 98% gauge (top-right) ============ -->
+  <g>
+    <rect x="460" y="95" width="900" height="375" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <text x="480" y="122" font-size="16" font-weight="bold" fill="#eaf4ff">M61 · 纯数字 I2C 批量验证</text>
+    <line x1="475" y1="132" x2="1345" y2="132" stroke="#2c517a"/>
+    <circle cx="1338" cy="112" r="5" fill="#7ce7a6">
+      <animate attributeName="r" values="4;7;4" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- gauge -->
+    <circle cx="650" cy="300" r="132" fill="none" stroke="#3f6b96" stroke-width="1.5" stroke-dasharray="6 10">
+      <animateTransform attributeName="transform" type="rotate" from="0 650 300" to="360 650 300" dur="16s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="650" cy="300" r="115" fill="none" stroke="#123a5e" stroke-width="16"/>
+    <circle cx="650" cy="300" r="115" fill="none" stroke="#7ce7a6" stroke-width="16" stroke-linecap="round"
+      stroke-dasharray="722.57 722.57" stroke-dashoffset="722.57" transform="rotate(-90 650 300)" filter="url(#glow)">
+      <animate attributeName="stroke-dashoffset" from="722.57" to="14.45" dur="1.6s" fill="freeze"/>
+    </circle>
+    <text x="650" y="292" font-size="44" font-weight="bold" fill="#7ce7a6" text-anchor="middle">98.0%</text>
+    <text x="650" y="324" font-size="16" fill="#eaf4ff" text-anchor="middle">383 / 391</text>
+    <text x="650" y="348" font-size="13" fill="#8fb3d4" text-anchor="middle">寄存器读正确</text>
+
+    <!-- test results -->
+    <rect x="860" y="150" width="470" height="52" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="875" y="182" font-size="13" font-weight="bold" fill="#4fd1ff">t_i2c_access_reg</text>
+    <text x="1315" y="182" font-size="15" font-weight="bold" fill="#7ce7a6" text-anchor="end">219/223 正确</text>
+
+    <rect x="860" y="212" width="470" height="52" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="875" y="244" font-size="13" font-weight="bold" fill="#4fd1ff">t_i2c_access_reg_unlock_reset</text>
+    <text x="1315" y="244" font-size="15" font-weight="bold" fill="#7ce7a6" text-anchor="end">164/168 正确</text>
+
+    <!-- failures -->
+    <rect x="860" y="278" width="470" height="112" rx="6" fill="#10304f" stroke="#ff7b72"/>
+    <text x="875" y="300" font-size="13" font-weight="bold" fill="#ff7b72">7 个失败 · 配置特定 / 未实现寄存器</text>
+    <text x="875" y="322" font-size="12" fill="#c9dcf0">addr 0x00：期望 0x80 / 0xf0</text>
+    <text x="875" y="342" font-size="12" fill="#c9dcf0">addr 0x07：期望 0x00 / 0x40</text>
+    <text x="875" y="362" font-size="12" fill="#c9dcf0">addr 0x24：读回 X</text>
+
+    <text x="860" y="412" font-size="12" fill="#8fb3d4">无帧 I2C 寄存器 case 可无 PPM 跑（M61 核心成果）</text>
+  </g>
+
+  <!-- ============ PANEL 3: PPM 依赖链 (bottom-left) ============ -->
+  <g>
+    <rect x="40" y="485" width="400" height="290" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <text x="60" y="512" font-size="15" font-weight="bold" fill="#eaf4ff">M63/M67 · 串行数据路径 → PPM 依赖</text>
+    <line x1="55" y1="522" x2="425" y2="522" stroke="#2c517a"/>
+    <circle cx="418" cy="502" r="5" fill="#ffd166">
+      <animate attributeName="r" values="4;7;4" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- case box -->
+    <rect x="55" y="536" width="370" height="84" rx="6" fill="#10304f" stroke="#ffd166"/>
+    <text x="68" y="556" font-size="12" font-weight="bold" fill="#ffd166">串行数据 case（6 族）</text>
+    <g font-size="11" fill="#c9dcf0">
+      <text x="68" y="578">· unlock_utc</text>
+      <text x="235" y="578">· descramble</text>
+      <text x="68" y="598">· error_state</text>
+      <text x="235" y="598">· multi_cfg</text>
+      <text x="68" y="618">· full</text>
+      <text x="235" y="618">· packpos</text>
+    </g>
+
+    <!-- arrow 1 -->
+    <line x1="240" y1="620" x2="240" y2="634" stroke="#ffd166" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#arrAmber)">
+      <animate attributeName="stroke-dashoffset" values="0;-28" dur="1s" repeatCount="indefinite"/>
+    </line>
+
+    <!-- load ppm node -->
+    <rect x="125" y="634" width="230" height="46" rx="6" fill="#10304f" stroke="#ffd166" filter="url(#glow)">
+      <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="240" y="654" font-size="11" fill="#eaf4ff" text-anchor="middle">[ISPTX] Start Tcon cmodel load ppm</text>
+    <text x="240" y="672" font-size="10" fill="#8fb3d4" text-anchor="middle">isptx_sequence.sv:546 · 约 353–472us</text>
+
+    <!-- arrow 2 -->
+    <line x1="240" y1="680" x2="240" y2="694" stroke="#ff7b72" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#arrRed)">
+      <animate attributeName="stroke-dashoffset" values="0;-28" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <circle r="3.5" fill="#ff7b72">
+      <animateMotion path="M240 680 L240 694" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- early exit node -->
+    <rect x="125" y="694" width="230" height="32" rx="6" fill="#10304f" stroke="#ff7b72"/>
+    <text x="240" y="714" font-size="12" font-weight="bold" fill="#ff7b72" text-anchor="middle">early exit</text>
+
+    <!-- note -->
+    <circle cx="58" cy="744" r="4" fill="#7ce7a6"/>
+    <text x="70" y="748" font-size="12" fill="#8fb3d4">仅无帧 I2C 寄存器 case 可无 PPM 跑</text>
+  </g>
+
+  <!-- ============ PANEL 4: cmodel dump 三层根因 (bottom-right) ============ -->
+  <g>
+    <rect x="460" y="485" width="900" height="290" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <text x="480" y="512" font-size="15" font-weight="bold" fill="#eaf4ff">M44–M50 · cmodel dump 三层根因</text>
+    <line x1="475" y1="522" x2="1345" y2="522" stroke="#2c517a"/>
+    <circle cx="1338" cy="502" r="5" fill="#c792ea">
+      <animate attributeName="r" values="4;7;4" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- node 1 -->
+    <rect x="480" y="536" width="380" height="56" rx="6" fill="#10304f" stroke="#c792ea">
+      <animate attributeName="stroke-opacity" values="1;0.3;1" dur="2s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="502" cy="564" r="13" fill="#c792ea"/>
+    <text x="502" y="569" font-size="13" font-weight="bold" fill="#0b1f33" text-anchor="middle">1</text>
+    <text x="526" y="559" font-size="13" font-weight="bold" fill="#eaf4ff">主因：PPM 文件缺失</text>
+    <text x="526" y="580" font-size="12" fill="#c9dcf0">pattern 目录下 PPM 文件缺失</text>
+
+    <!-- node 2 -->
+    <rect x="480" y="606" width="380" height="56" rx="6" fill="#10304f" stroke="#c792ea">
+      <animate attributeName="stroke-opacity" values="1;0.3;1" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="502" cy="634" r="13" fill="#c792ea"/>
+    <text x="502" y="639" font-size="13" font-weight="bold" fill="#0b1f33" text-anchor="middle">2</text>
+    <text x="526" y="629" font-size="13" font-weight="bold" fill="#eaf4ff">pic_process 崩溃</text>
+    <text x="526" y="650" font-size="12" fill="#c9dcf0">对小高度（16 行）崩溃</text>
+
+    <!-- node 3 -->
+    <rect x="480" y="676" width="380" height="64" rx="6" fill="#10304f" stroke="#c792ea">
+      <animate attributeName="stroke-opacity" values="1;0.3;1" dur="2s" begin="1.0s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="502" cy="702" r="13" fill="#c792ea"/>
+    <text x="502" y="707" font-size="13" font-weight="bold" fill="#0b1f33" text-anchor="middle">3</text>
+    <text x="526" y="696" font-size="13" font-weight="bold" fill="#eaf4ff">两版 pic_process 并存</text>
+    <text x="526" y="717" font-size="11" fill="#c9dcf0">HK1V11 旧 -X -Y -H4 / HV2M23 新 -D -HV -L -CL</text>
+
+    <!-- connector to breakthrough -->
+    <line x1="862" y1="640" x2="886" y2="640" stroke="#7ce7a6" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#arrGreen)">
+      <animate attributeName="stroke-dashoffset" values="0;-28" dur="1s" repeatCount="indefinite"/>
+    </line>
+
+    <!-- breakthrough block -->
+    <rect x="890" y="536" width="430" height="204" rx="10" fill="#155e46" stroke="#7ce7a6" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.2s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <text x="910" y="568" font-size="15" font-weight="bold" fill="#d9f7e8">M49/M50 突破</text>
+    <text x="910" y="594" font-size="12" fill="#a7e6c8">HK1V11 symlink PPM + HV2M23 风格命令</text>
+    <text x="910" y="614" font-size="12" fill="#a7e6c8">P=4, H=480</text>
+    <line x1="910" y1="630" x2="1300" y2="630" stroke="#2c517a"/>
+    <text x="910" y="672" font-size="26" font-weight="bold" fill="#7ce7a6">40 个 dump 文件</text>
+    <text x="910" y="698" font-size="12" fill="#a7e6c8">cmodel dump 成功产出</text>
+  </g>
+
+  <!-- ============ CONCLUSION (bottom) ============ -->
+  <g>
+    <rect x="40" y="785" width="1320" height="110" rx="10" fill="#155e46" stroke="#7ce7a6" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="60" y="825" font-size="15" font-weight="bold" fill="#d9f7e8">结论</text>
+    <text x="60" y="862" font-size="16" font-weight="bold" fill="#eaf4ff">HV2M23 数字 I2C 核心 98% 正确 · 串行数据路径 = PPM 依赖（与 HK1V11 同机制）</text>
+  </g>
+
+  <!-- ============ FOOTER ============ -->
+  <line x1="40" y1="912" x2="1360" y2="912" stroke="#2c517a" stroke-width="1"/>
+  <text x="40" y="932" font-size="11" fill="#5f85ab">HV2M23 第二芯片验证 · 数字 I2C 核心 98% 正确（383/391） · 串行数据路径=PPM 依赖 · cmodel dump 40 文件突破</text>
+</svg>

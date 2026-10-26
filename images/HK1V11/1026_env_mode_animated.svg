@@ -1,0 +1,306 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 940" font-family="'Microsoft YaHei','Segoe UI',sans-serif">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#143354" stroke-width="1"/>
+    </pattern>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 Z" fill="#4fd1ff"/>
+    </marker>
+    <marker id="arrLoop" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 Z" fill="#ffd166"/>
+    </marker>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1400" height="940" fill="#0b1f33"/>
+  <rect width="1400" height="940" fill="url(#grid)"/>
+
+  <!-- ============ HEADER ============ -->
+  <text x="40" y="42" font-size="25" font-weight="bold" fill="#eaf4ff">VU440 · HK1V11 工作环境 × 工作模式</text>
+  <text x="40" y="66" font-size="13" fill="#8fb3d4">DeepSeek Harness 自主探索循环 · 多厂商 EDA 平台 · 隔离安全边界 · 2026-10-26</text>
+  <line x1="40" y1="78" x2="1360" y2="78" stroke="#2c517a" stroke-width="1.5"/>
+
+  <!-- 60h badge -->
+  <g filter="url(#glow)">
+    <rect x="1178" y="20" width="182" height="44" rx="8" fill="none" stroke="#4fd1ff" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="1;0.35;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="1269" y="40" font-size="16" font-weight="bold" fill="#4fd1ff" text-anchor="middle">60h 不停歇循环</text>
+    <text x="1269" y="57" font-size="11" fill="#8fb3d4" text-anchor="middle">116 rounds · 73 里程碑</text>
+  </g>
+
+  <!-- ============ HOST BOX (left) ============ -->
+  <g>
+    <rect x="40" y="95" width="380" height="445" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <text x="60" y="122" font-size="16" font-weight="bold" fill="#eaf4ff">Windows 宿主（本机）</text>
+    <line x1="55" y1="132" x2="405" y2="132" stroke="#2c517a"/>
+
+    <!-- DSH -->
+    <rect x="55" y="142" width="350" height="92" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="163" font-size="13" font-weight="bold" fill="#4fd1ff">DeepSeek Harness（DSH）</text>
+    <text x="68" y="182" font-size="12" fill="#c9dcf0">Web GUI · Agent「lead」自主决策（零用户介入）</text>
+    <text x="68" y="200" font-size="12" fill="#c9dcf0">subagent / agent-teams 多智能体后台执行</text>
+    <text x="68" y="218" font-size="12" fill="#c9dcf0">插件：dsh-ssh · daily-report · screenshot-report · xilinx-suite</text>
+
+    <!-- local tools -->
+    <rect x="55" y="244" width="350" height="78" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="265" font-size="13" font-weight="bold" fill="#7ce7a6">本地工具</text>
+    <text x="68" y="284" font-size="12" fill="#c9dcf0">Icarus Verilog 12.0（本机开源仿真）</text>
+    <text x="68" y="302" font-size="12" fill="#c9dcf0">Python 分析链 · git 镜像仓 · 报告站</text>
+
+    <!-- outputs -->
+    <rect x="55" y="332" width="350" height="92" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="68" y="353" font-size="13" font-weight="bold" fill="#ffd166">产出与同步</text>
+    <text x="68" y="372" font-size="12" fill="#c9dcf0">E:\每日记录 → GitHub Pages 日报站（绝对 URL）</text>
+    <text x="68" y="390" font-size="12" fill="#c9dcf0">E:\project\HK1V11\docs 验证报告（终版定稿）</text>
+    <text x="68" y="408" font-size="12" fill="#c9dcf0">每日 10:00 插件版本巡检 · 周报/遗留问题联动</text>
+
+    <!-- style -->
+    <text x="68" y="445" font-size="12" fill="#8fb3d4">风格：蓝图工程风 · 表格优先 · 低文字密度</text>
+    <text x="68" y="463" font-size="12" fill="#8fb3d4">数据流：对话 → 日报/报告 → 站点发布 → 回看</text>
+
+    <!-- pulsing activity dot -->
+    <circle cx="395" cy="112" r="5" fill="#7ce7a6">
+      <animate attributeName="r" values="4;7;4" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ============ SSH LINK (center) ============ -->
+  <g>
+    <!-- command stream (→) -->
+    <line x1="420" y1="290" x2="580" y2="290" stroke="#4fd1ff" stroke-width="2" stroke-dasharray="10 8">
+      <animate attributeName="stroke-dashoffset" values="0;-36" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <circle r="4" fill="#4fd1ff">
+      <animateMotion path="M420 290 L580 290" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <!-- result stream (←) -->
+    <line x1="580" y1="330" x2="420" y2="330" stroke="#7ce7a6" stroke-width="2" stroke-dasharray="10 8">
+      <animate attributeName="stroke-dashoffset" values="0;-36" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <circle r="4" fill="#7ce7a6">
+      <animateMotion path="M580 330 L420 330" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+
+    <text x="500" y="255" font-size="13" font-weight="bold" fill="#4fd1ff" text-anchor="middle">dsh-ssh 插件</text>
+    <text x="500" y="273" font-size="11" fill="#c9dcf0" text-anchor="middle">root@192.168.206.128</text>
+    <text x="500" y="356" font-size="11" fill="#8fb3d4" text-anchor="middle">密钥认证 · 持久连接池</text>
+    <text x="500" y="372" font-size="11" fill="#8fb3d4" text-anchor="middle">命令 → / 结果 ←</text>
+    <text x="500" y="390" font-size="11" fill="#8fb3d4" text-anchor="middle">短轮询 ≤180s（绝不挂起等待）</text>
+  </g>
+
+  <!-- ============ VM BOX (right) ============ -->
+  <g>
+    <rect x="580" y="95" width="780" height="445" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <text x="600" y="122" font-size="16" font-weight="bold" fill="#eaf4ff">VM IC_EDA（CentOS · 8 核 / 3.7G RAM / /home 309G）</text>
+    <line x1="595" y1="132" x2="1345" y2="132" stroke="#2c517a"/>
+
+    <!-- tool row 1: Synopsys -->
+    <text x="600" y="156" font-size="12" font-weight="bold" fill="#ffd166">Synopsys</text>
+    <g font-size="12">
+      <rect x="600" y="163" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="691" y="182" fill="#eaf4ff" text-anchor="middle" font-weight="bold">VCS O-2018.09-1</text>
+      <text x="691" y="199" fill="#8fb3d4" text-anchor="middle">主力 UVM 仿真 · 632 回归</text>
+
+      <rect x="792" y="163" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="883" y="182" fill="#eaf4ff" text-anchor="middle" font-weight="bold">Verdi O-2018.09</text>
+      <text x="883" y="199" fill="#8fb3d4" text-anchor="middle">波形 · fsdb2vcd 无 GUI 探针</text>
+
+      <rect x="984" y="163" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="1075" y="182" fill="#eaf4ff" text-anchor="middle" font-weight="bold">DC O-2018.06</text>
+      <text x="1075" y="199" fill="#8fb3d4" text-anchor="middle">结构综合 · 29168 leaf</text>
+
+      <rect x="1176" y="163" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="1267" y="182" fill="#eaf4ff" text-anchor="middle" font-weight="bold">SpyGlass 2016</text>
+      <text x="1267" y="199" fill="#8fb3d4" text-anchor="middle">classic flow 已弃用</text>
+    </g>
+
+    <!-- tool row 2: Mentor / Cadence -->
+    <text x="600" y="232" font-size="12" font-weight="bold" fill="#ffd166">Mentor / Cadence</text>
+    <g font-size="12">
+      <rect x="600" y="239" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="691" y="258" fill="#eaf4ff" text-anchor="middle" font-weight="bold">QuestaSim 10.7c</text>
+      <text x="691" y="275" fill="#8fb3d4" text-anchor="middle">第二商用仿真器（交叉验证）</text>
+
+      <rect x="792" y="239" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="883" y="258" fill="#eaf4ff" text-anchor="middle" font-weight="bold">Calibre 2015.2</text>
+      <text x="883" y="275" fill="#8fb3d4" text-anchor="middle">物理验证（-version 实锤）</text>
+
+      <rect x="984" y="239" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="1075" y="258" fill="#eaf4ff" text-anchor="middle" font-weight="bold">Innovus IC617</text>
+      <text x="1075" y="275" fill="#8fb3d4" text-anchor="middle">P&amp;R（license daemon 未起）</text>
+
+      <rect x="1176" y="239" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="1267" y="258" fill="#eaf4ff" text-anchor="middle" font-weight="bold">Spectre 15.1</text>
+      <text x="1267" y="275" fill="#8fb3d4" text-anchor="middle">模拟仿真（待 license）</text>
+    </g>
+
+    <!-- tool row 3: OSS / PDK -->
+    <text x="600" y="302" font-size="12" font-weight="bold" fill="#ffd166">开源 / PDK</text>
+    <g font-size="12">
+      <rect x="600" y="309" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="691" y="328" fill="#eaf4ff" text-anchor="middle" font-weight="bold">Icarus Verilog 12.0</text>
+      <text x="691" y="345" fill="#8fb3d4" text-anchor="middle">器件级 stub 仿真（无 license）</text>
+
+      <rect x="792" y="309" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="883" y="328" fill="#eaf4ff" text-anchor="middle" font-weight="bold">RISC-V gcc 11 + qemu32</text>
+      <text x="883" y="345" fill="#8fb3d4" text-anchor="middle">编译实锤 · 运行时工具在</text>
+
+      <rect x="984" y="309" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="1075" y="328" fill="#eaf4ff" text-anchor="middle" font-weight="bold">TSMC PDK 65/90/130nm</text>
+      <text x="1075" y="345" fill="#8fb3d4" text-anchor="middle">物理验证向（非 DC Liberty）</text>
+
+      <rect x="1176" y="309" width="182" height="46" rx="5" fill="#10304f" stroke="#3f6b96"/>
+      <text x="1267" y="328" fill="#eaf4ff" text-anchor="middle" font-weight="bold">Vivado 18.03</text>
+      <text x="1267" y="345" fill="#8fb3d4" text-anchor="middle">无 VU440 器件（版本过老）</text>
+    </g>
+
+    <!-- projects row -->
+    <text x="600" y="384" font-size="12" font-weight="bold" fill="#7ce7a6">芯片项目（两个 TCON）</text>
+    <g font-size="12">
+      <rect x="600" y="391" width="240" height="52" rx="5" fill="#123a5e" stroke="#7ce7a6"/>
+      <text x="720" y="411" fill="#eaf4ff" text-anchor="middle" font-weight="bold">HK1V11（29G · 282 RTL）</text>
+      <text x="720" y="429" fill="#8fb3d4" text-anchor="middle">632 case 回归 · 原工程只读</text>
+
+      <rect x="852" y="391" width="240" height="52" rx="5" fill="#123a5e" stroke="#7ce7a6"/>
+      <text x="972" y="411" fill="#eaf4ff" text-anchor="middle" font-weight="bold">HV2M23（13G · 330+ RTL）</text>
+      <text x="972" y="429" fill="#8fb3d4" text-anchor="middle">427 test · I2C 98% · 只读</text>
+
+      <rect x="1104" y="391" width="254" height="52" rx="5" fill="#155e46" stroke="#7ce7a6">
+        <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2.4s" repeatCount="indefinite"/>
+      </rect>
+      <text x="1231" y="411" fill="#d9f7e8" text-anchor="middle" font-weight="bold">vu440_sim（隔离工作区）</text>
+      <text x="1231" y="429" fill="#a7e6c8" text-anchor="middle">全部交付物 · 循环前已清理 79G→1.4G</text>
+    </g>
+
+    <text x="600" y="472" font-size="12" fill="#8fb3d4">双商用仿真器（VCS + QuestaSim）+ 多厂商工具 + 多工艺 PDK = 完整 EDA 平台</text>
+    <text x="600" y="490" font-size="12" fill="#8fb3d4">license：SNPSLMD 27000@IC_EDA · Mentor mentor.dat · Cadence lmgrd（daemon 崩溃待修）</text>
+
+    <!-- activity dot -->
+    <circle cx="1345" cy="112" r="5" fill="#4fd1ff">
+      <animate attributeName="r" values="4;7;4" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ============ BOTTOM LEFT: autonomous loop ============ -->
+  <g>
+    <rect x="40" y="560" width="600" height="335" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <text x="60" y="588" font-size="15" font-weight="bold" fill="#eaf4ff">工作模式 ①：60h 自主循环（穷尽一切方法）</text>
+    <line x1="55" y1="598" x2="625" y2="598" stroke="#2c517a"/>
+
+    <!-- rotating dashed orbit -->
+    <g transform="translate(235,752)">
+      <circle r="108" fill="none" stroke="#ffd166" stroke-width="2" stroke-dasharray="12 10">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="14s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="108" fill="none" stroke="#2c517a" stroke-width="1"/>
+    </g>
+
+    <!-- 6 stage nodes -->
+    <g font-size="14" font-weight="bold" text-anchor="middle">
+      <g><rect x="199" y="618" width="72" height="30" rx="15" fill="#10304f" stroke="#ffd166"/><text x="235" y="638" fill="#ffd166">探索</text></g>
+      <g><rect x="318" y="671" width="72" height="30" rx="15" fill="#10304f" stroke="#ffd166"/><text x="354" y="691" fill="#ffd166">编译</text></g>
+      <g><rect x="318" y="835" width="72" height="30" rx="15" fill="#10304f" stroke="#ffd166"/><text x="354" y="855" fill="#ffd166">仿真</text></g>
+      <g><rect x="199" y="888" width="72" height="30" rx="15" fill="#10304f" stroke="#ffd166"/><text x="235" y="908" fill="#ffd166">定位</text></g>
+      <g><rect x="80"  y="835" width="72" height="30" rx="15" fill="#10304f" stroke="#ffd166"/><text x="116" y="855" fill="#ffd166">修复</text></g>
+      <g><rect x="80"  y="671" width="72" height="30" rx="15" fill="#10304f" stroke="#ffd166"/><text x="116" y="691" fill="#ffd166">验证</text></g>
+    </g>
+
+    <!-- orbit arrows (static triangles, clockwise) -->
+    <g fill="#ffd166">
+      <path d="M285 630 l10 6 l-10 6 z"/>
+      <path d="M372 700 l10 6 l-10 6 z" transform="rotate(40 372 700)"/>
+      <path d="M360 848 l10 6 l-10 6 z" transform="rotate(120 360 848)"/>
+      <path d="M268 890 l10 6 l-10 6 z" transform="rotate(180 268 890)"/>
+      <path d="M132 848 l10 6 l-10 6 z" transform="rotate(240 132 848)"/>
+      <path d="M116 698 l10 6 l-10 6 z" transform="rotate(300 116 698)"/>
+    </g>
+
+    <!-- center stat -->
+    <text x="235" y="740" font-size="15" font-weight="bold" fill="#eaf4ff" text-anchor="middle">116 rounds</text>
+    <text x="235" y="760" font-size="13" fill="#8fb3d4" text-anchor="middle">73 个里程碑</text>
+    <text x="235" y="778" font-size="11" fill="#8fb3d4" text-anchor="middle">M1–M75</text>
+
+    <!-- right notes -->
+    <g font-size="12" fill="#c9dcf0">
+      <text x="430" y="632">长任务纪律：</text>
+      <text x="430" y="652" fill="#7ce7a6">nohup 后台 + 短轮询（≤180s）</text>
+      <text x="430" y="672" fill="#7ce7a6">绝不 sleep 挂起等待</text>
+      <text x="430" y="706">安全边界：</text>
+      <text x="430" y="726" fill="#7ce7a6">只写隔离工作区 vu440_sim</text>
+      <text x="430" y="746" fill="#7ce7a6">原工程 HK1V11/HV2M23 只读</text>
+      <text x="430" y="780">执行结构：</text>
+      <text x="430" y="800" fill="#7ce7a6">lead 自主决策（零用户介入）</text>
+      <text x="430" y="820" fill="#7ce7a6">重活交后台 subagent</text>
+      <text x="430" y="840" fill="#7ce7a6">判图/OCR/渲染走视觉子代理</text>
+    </g>
+  </g>
+
+  <!-- ============ BOTTOM RIGHT: discipline + results ============ -->
+  <g>
+    <rect x="660" y="560" width="700" height="335" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <text x="680" y="588" font-size="15" font-weight="bold" fill="#eaf4ff">工作模式 ②：纪律与成果</text>
+    <line x1="675" y1="598" x2="1345" y2="598" stroke="#2c517a"/>
+
+    <!-- discipline badges -->
+    <g font-size="12">
+      <rect x="680" y="610" width="330" height="58" rx="6" fill="#10304f" stroke="#3f6b96"/>
+      <circle cx="700" cy="630" r="5" fill="#4fd1ff"/>
+      <text x="714" y="634" font-weight="bold" fill="#eaf4ff">不阻塞等待</text>
+      <text x="714" y="654" fill="#8fb3d4">后台 nohup + 轮询日志，模型永不卡 wait</text>
+
+      <rect x="1020" y="610" width="320" height="58" rx="6" fill="#10304f" stroke="#3f6b96"/>
+      <circle cx="1040" cy="630" r="5" fill="#7ce7a6"/>
+      <text x="1054" y="634" font-weight="bold" fill="#eaf4ff">安全边界</text>
+      <text x="1054" y="654" fill="#8fb3d4">仅隔离工作区；原工程绝不改/删</text>
+
+      <rect x="680" y="678" width="330" height="58" rx="6" fill="#10304f" stroke="#3f6b96"/>
+      <circle cx="700" cy="698" r="5" fill="#ffd166"/>
+      <text x="714" y="702" font-weight="bold" fill="#eaf4ff">多厂商交叉验证</text>
+      <text x="714" y="722" fill="#8fb3d4">VCS + QuestaSim + Icarus 三仿真器互证</text>
+
+      <rect x="1020" y="678" width="320" height="58" rx="6" fill="#10304f" stroke="#3f6b96"/>
+      <circle cx="1040" cy="698" r="5" fill="#c792ea"/>
+      <text x="1054" y="702" font-weight="bold" fill="#eaf4ff">交付沉淀</text>
+      <text x="1054" y="722" fill="#8fb3d4">7 类可复用模板 + 6 个 Python 分析工具</text>
+    </g>
+
+    <!-- result chips -->
+    <text x="680" y="762" font-size="13" font-weight="bold" fill="#7ce7a6">60h 核心成果</text>
+    <g font-size="12">
+      <rect x="680" y="772" width="330" height="52" rx="6" fill="#155e46" stroke="#7ce7a6">
+        <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.2s" repeatCount="indefinite"/>
+      </rect>
+      <text x="845" y="793" fill="#d9f7e8" text-anchor="middle" font-weight="bold">632 case 100% 定性闭环</text>
+      <text x="845" y="812" fill="#a7e6c8" text-anchor="middle">0 个数字 DUT bug（5 类全归因）</text>
+
+      <rect x="1020" y="772" width="320" height="52" rx="6" fill="#155e46" stroke="#7ce7a6">
+        <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.2s" begin="0.6s" repeatCount="indefinite"/>
+      </rect>
+      <text x="1180" y="793" fill="#d9f7e8" text-anchor="middle" font-weight="bold">I2C checksum 26 全 PASS</text>
+      <text x="1180" y="812" fill="#a7e6c8" text-anchor="middle">HV2M23 数字 I2C 核心 98%（383/391）</text>
+
+      <rect x="680" y="834" width="330" height="52" rx="6" fill="#155e46" stroke="#7ce7a6">
+        <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.2s" begin="1.2s" repeatCount="indefinite"/>
+      </rect>
+      <text x="845" y="855" fill="#d9f7e8" text-anchor="middle" font-weight="bold">DC 结构综合 29168 leaf</text>
+      <text x="845" y="874" fill="#a7e6c8" text-anchor="middle">4 条数字功能链全部信号级探针</text>
+
+      <rect x="1020" y="834" width="320" height="52" rx="6" fill="#155e46" stroke="#7ce7a6">
+        <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.2s" begin="1.8s" repeatCount="indefinite"/>
+      </rect>
+      <text x="1180" y="855" fill="#d9f7e8" text-anchor="middle" font-weight="bold">报告终版 + PROGRESS.md</text>
+      <text x="1180" y="874" fill="#a7e6c8" text-anchor="middle">环境未破坏 · 磁盘已清理（88%→63%）</text>
+    </g>
+  </g>
+
+  <!-- ============ FOOTER ============ -->
+  <line x1="40" y1="912" x2="1360" y2="912" stroke="#2c517a" stroke-width="1"/>
+  <text x="40" y="932" font-size="11" fill="#5f85ab">工作环境 = Windows 宿主（DSH + 插件 + 本地工具） + SSH（dsh-ssh） + VM IC_EDA（多厂商 EDA + 双 TCON 项目） · 工作模式 = 60h 自主循环 + 不阻塞等待 + 安全边界 + 多厂商互证</text>
+</svg>

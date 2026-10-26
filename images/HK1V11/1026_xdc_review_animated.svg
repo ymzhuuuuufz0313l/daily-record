@@ -1,0 +1,328 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 940" font-family="'Microsoft YaHei','Segoe UI',sans-serif">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#143354" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1400" height="940" fill="#0b1f33"/>
+  <rect width="1400" height="940" fill="url(#grid)"/>
+  <text x="40" y="42" font-size="25" font-weight="bold" fill="#eaf4ff">VU440 XDC 约束审查 · 12 个版本演进</text>
+  <text x="40" y="66" font-size="13" fill="#8fb3d4">BLOCKER：master 时钟未 create_clock 导致 22 时钟派生树全失效 · FPGA 约束远薄于 ASIC SDC</text>
+  <line x1="40" y1="78" x2="1360" y2="78" stroke="#2c517a" stroke-width="1.5"/>
+  <g filter="url(#glow)">
+    <rect x="1178" y="20" width="182" height="44" rx="8" fill="none" stroke="#ff7b72" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="1;0.35;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="1269" y="40" font-size="16" font-weight="bold" fill="#ff7b72" text-anchor="middle">BLOCKER</text>
+    <text x="1269" y="57" font-size="11" fill="#8fb3d4" text-anchor="middle">22 时钟派生树全失效</text>
+  </g>
+  <rect x="40" y="95" width="1320" height="350" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+  <text x="60" y="126" font-size="15" font-weight="bold" fill="#eaf4ff">时钟派生树 · master 缺失 create_clock → 22 派生时钟全失效</text>
+  <text x="60" y="148" font-size="12" fill="#8fb3d4">BUFG_GT_ISP_RXOUTCLK1/I（rxoutclk_out[1]）没有任何 create_clock</text>
+  <rect x="60" y="168" width="420" height="52" rx="6" fill="#10304f" stroke="#ff7b72">
+    <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <text x="76" y="190" font-size="14" font-weight="bold" fill="#ff7b72">42 条 "No clocks matched"</text>
+  <text x="76" y="208" font-size="11" fill="#8fb3d4">综合日志</text>
+  <rect x="60" y="232" width="420" height="52" rx="6" fill="#10304f" stroke="#ffd166">
+    <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="76" y="254" font-size="14" font-weight="bold" fill="#ffd166">20 条 CRITICAL set_clock_groups</text>
+  <text x="76" y="272" font-size="11" fill="#8fb3d4">告警</text>
+  <g stroke="#ff7b72" stroke-width="1" stroke-dasharray="6 6">
+    <animate attributeName="opacity" values="1;0.5;1" dur="1.6s" repeatCount="indefinite"/>
+    <line x1="700" y1="206" x2="114" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="232" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="350" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="468" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="586" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="704" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="822" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="940" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="1058" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="1176" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="1294" y2="290">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="114" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="232" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="350" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="468" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="586" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="704" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="822" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="940" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="1058" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="1176" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="206" x2="1294" y2="380">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  <g filter="url(#glow)">
+    <rect x="510" y="118" width="380" height="88" rx="6" fill="#10304f" stroke="#ff7b72" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="1;0.35;1" dur="1.6s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <text x="700" y="146" font-size="13" font-weight="bold" fill="#ff7b72" text-anchor="middle">BUFG_GT_ISP_RXOUTCLK1 / I</text>
+  <text x="700" y="168" font-size="11" fill="#c9dcf0" text-anchor="middle">U_VU440_GXB_PHY_TOP · rxoutclk_out[1]</text>
+  <text x="700" y="192" font-size="13" font-weight="bold" fill="#ff7b72" text-anchor="middle">无 create_clock</text>
+  <circle cx="792" cy="188" r="5" fill="#ff7b72">
+    <animate attributeName="r" values="4;7;4" dur="1.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <g>
+    <animate attributeName="opacity" values="1;0.55;1" dur="2s" repeatCount="indefinite"/>
+    <rect x="64" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="108" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 01</text>
+    <line x1="146" y1="298" x2="158" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="146" y1="310" x2="158" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="182" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="226" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 02</text>
+    <line x1="264" y1="298" x2="276" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="264" y1="310" x2="276" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="300" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="344" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 03</text>
+    <line x1="382" y1="298" x2="394" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="382" y1="310" x2="394" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="418" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="462" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 04</text>
+    <line x1="500" y1="298" x2="512" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="500" y1="310" x2="512" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="536" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="580" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 05</text>
+    <line x1="618" y1="298" x2="630" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="618" y1="310" x2="630" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="654" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="698" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 06</text>
+    <line x1="736" y1="298" x2="748" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="736" y1="310" x2="748" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="772" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="816" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 07</text>
+    <line x1="854" y1="298" x2="866" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="854" y1="310" x2="866" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="890" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="934" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 08</text>
+    <line x1="972" y1="298" x2="984" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="972" y1="310" x2="984" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="1008" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="1052" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 09</text>
+    <line x1="1090" y1="298" x2="1102" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="1090" y1="310" x2="1102" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="1126" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="1170" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 10</text>
+    <line x1="1208" y1="298" x2="1220" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="1208" y1="310" x2="1220" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="1244" y="290" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="1288" y="313" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 11</text>
+    <line x1="1326" y1="298" x2="1338" y2="310" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="1326" y1="310" x2="1338" y2="298" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="64" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="108" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 12</text>
+    <line x1="146" y1="388" x2="158" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="146" y1="400" x2="158" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="182" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="226" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 13</text>
+    <line x1="264" y1="388" x2="276" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="264" y1="400" x2="276" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="300" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="344" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 14</text>
+    <line x1="382" y1="388" x2="394" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="382" y1="400" x2="394" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="418" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="462" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 15</text>
+    <line x1="500" y1="388" x2="512" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="500" y1="400" x2="512" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="536" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="580" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 16</text>
+    <line x1="618" y1="388" x2="630" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="618" y1="400" x2="630" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="654" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="698" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 17</text>
+    <line x1="736" y1="388" x2="748" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="736" y1="400" x2="748" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="772" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="816" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 18</text>
+    <line x1="854" y1="388" x2="866" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="854" y1="400" x2="866" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="890" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="934" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 19</text>
+    <line x1="972" y1="388" x2="984" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="972" y1="400" x2="984" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="1008" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="1052" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 20</text>
+    <line x1="1090" y1="388" x2="1102" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="1090" y1="400" x2="1102" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="1126" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="1170" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 21</text>
+    <line x1="1208" y1="388" x2="1220" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="1208" y1="400" x2="1220" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+    <rect x="1244" y="380" width="100" height="36" rx="5" fill="#10304f" stroke="#5f85ab"/>
+    <text x="1288" y="403" font-size="11" fill="#8fb3d4" text-anchor="middle">派生时钟 22</text>
+    <line x1="1326" y1="388" x2="1338" y2="400" stroke="#ff7b72" stroke-width="1.5"/>
+    <line x1="1326" y1="400" x2="1338" y2="388" stroke="#ff7b72" stroke-width="1.5"/>
+  </g>
+  <rect x="920" y="168" width="420" height="64" rx="6" fill="#10304f" stroke="#ff7b72">
+    <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.4s" repeatCount="indefinite"/>
+  </rect>
+  <text x="1130" y="196" font-size="14" font-weight="bold" fill="#ff7b72" text-anchor="middle">22 个派生时钟 · 全部失效</text>
+  <text x="1130" y="218" font-size="11" fill="#8fb3d4" text-anchor="middle">master 缺失 → 派生树整体无效</text>
+  <line x1="920" y1="258" x2="960" y2="258" stroke="#ff7b72" stroke-width="1.5" stroke-dasharray="6 6">
+    <animate attributeName="stroke-dashoffset" values="0;-24" dur="1s" repeatCount="indefinite"/>
+  </line>
+  <text x="970" y="262" font-size="11" fill="#8fb3d4">无效传播（脉冲虚线）</text>
+  <rect x="40" y="460" width="600" height="325" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+  <text x="60" y="490" font-size="15" font-weight="bold" fill="#eaf4ff">12 个 XDC 版本演进 · 全版本审查</text>
+  <text x="60" y="512" font-size="12" fill="#8fb3d4">VU440 工程多版本约束文件（XDC）· 审查覆盖全版本</text>
+  <line x1="82" y1="640" x2="599" y2="640" stroke="#2c517a" stroke-width="2"/>
+  <line x1="82" y1="640" x2="599" y2="640" stroke="#7ce7a6" stroke-width="2" stroke-dasharray="4 12">
+    <animate attributeName="stroke-dashoffset" values="0;-32" dur="1.6s" repeatCount="indefinite"/>
+  </line>
+  <text x="82" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v1</text>
+  <circle cx="82" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="0.0s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="0.0s" repeatCount="indefinite"/>
+  </circle>
+  <text x="129" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v2</text>
+  <circle cx="129" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="0.2s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="0.2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="176" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v3</text>
+  <circle cx="176" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
+  </circle>
+  <text x="223" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v4</text>
+  <circle cx="223" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
+  </circle>
+  <text x="270" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v5</text>
+  <circle cx="270" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
+  </circle>
+  <text x="317" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v6</text>
+  <circle cx="317" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="1.0s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="1.0s" repeatCount="indefinite"/>
+  </circle>
+  <text x="364" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v7</text>
+  <circle cx="364" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="411" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v8</text>
+  <circle cx="411" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="1.4s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="1.4s" repeatCount="indefinite"/>
+  </circle>
+  <text x="458" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v9</text>
+  <circle cx="458" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <text x="505" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v10</text>
+  <circle cx="505" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="1.8s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <text x="552" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v11</text>
+  <circle cx="552" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="2.0s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="2.0s" repeatCount="indefinite"/>
+  </circle>
+  <text x="599" y="622" font-size="10" fill="#8fb3d4" text-anchor="middle">v12</text>
+  <circle cx="599" cy="640" r="5" fill="#5f85ab">
+    <animate attributeName="fill" values="#5f85ab;#7ce7a6;#5f85ab;#5f85ab" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;5" keyTimes="0;0.1;0.2;1" dur="2.4s" begin="2.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="4" fill="#7ce7a6">
+    <animateMotion path="M82 640 L599 640" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="82" y="700" width="260" height="46" rx="6" fill="#10304f" stroke="#3f6b96"/>
+  <text x="212" y="720" font-size="13" font-weight="bold" fill="#7ce7a6" text-anchor="middle">全版本覆盖 12/12</text>
+  <text x="212" y="738" font-size="11" fill="#a7e6c8" text-anchor="middle">VU440 工程 12 版 XDC 全审查</text>
+  <rect x="362" y="700" width="260" height="46" rx="6" fill="#10304f" stroke="#3f6b96"/>
+  <text x="492" y="720" font-size="13" font-weight="bold" fill="#ffd166" text-anchor="middle">XDC（FPGA）vs SDC（ASIC）</text>
+  <text x="492" y="738" font-size="11" fill="#8fb3d4" text-anchor="middle">约束覆盖对比审查</text>
+  <rect x="660" y="460" width="700" height="325" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+  <text x="680" y="490" font-size="15" font-weight="bold" fill="#eaf4ff">BLOCKER 修复建议 + HIGH 缺约束</text>
+  <line x1="675" y1="500" x2="1345" y2="500" stroke="#2c517a"/>
+  <rect x="680" y="512" width="660" height="96" rx="6" fill="#081827" stroke="#3f6b96"/>
+  <text x="696" y="534" font-size="12" font-weight="bold" fill="#4fd1ff">BLOCKER · 修复建议（一行命令）</text>
+  <text x="696" y="562" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#7ce7a6">create_clock -name RX0_CLK -period 3.048</text>
+  <text x="696" y="584" font-size="12" font-family="Consolas,'Courier New',monospace" fill="#7ce7a6">    [get_pins U_VU440_GXB_PHY_TOP/BUFG_GT_ISP_RXOUTCLK1/I]</text>
+  <rect x="1124" y="574" width="8" height="12" fill="#7ce7a6">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  <text x="680" y="638" font-size="13" font-weight="bold" fill="#ffd166">HIGH · FPGA XDC 相比 ASIC SDC 严重缺约束</text>
+  <rect x="680" y="650" width="200" height="60" rx="6" fill="#10304f" stroke="#ffd166">
+    <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.2s" begin="0s" repeatCount="indefinite"/>
+  </rect>
+  <text x="780" y="674" font-size="12" fill="#c9dcf0" text-anchor="middle">max_delay</text>
+  <text x="780" y="700" font-size="18" font-weight="bold" fill="#ffd166" text-anchor="middle">= 0</text>
+  <rect x="890" y="650" width="200" height="60" rx="6" fill="#10304f" stroke="#ffd166">
+    <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.2s" begin="0.6s" repeatCount="indefinite"/>
+  </rect>
+  <text x="990" y="674" font-size="12" fill="#c9dcf0" text-anchor="middle">multicycle</text>
+  <text x="990" y="700" font-size="18" font-weight="bold" fill="#ffd166" text-anchor="middle">= 0</text>
+  <rect x="1100" y="650" width="200" height="60" rx="6" fill="#10304f" stroke="#ffd166">
+    <animate attributeName="stroke-opacity" values="1;0.45;1" dur="2.2s" begin="1.2s" repeatCount="indefinite"/>
+  </rect>
+  <text x="1200" y="674" font-size="12" fill="#c9dcf0" text-anchor="middle">input_delay</text>
+  <text x="1200" y="700" font-size="18" font-weight="bold" fill="#ffd166" text-anchor="middle">= 0</text>
+  <text x="680" y="742" font-size="11" fill="#8fb3d4">max_delay / multicycle / input_delay 全为 0 · FPGA 约束远薄于 ASIC SDC</text>
+  <text x="680" y="764" font-size="11" fill="#8fb3d4">约束缺失 = 流程问题（FPGA 侧），非数字设计问题</text>
+  <rect x="40" y="800" width="1320" height="88" rx="10" fill="#155e46" stroke="#7ce7a6" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2.4s" repeatCount="indefinite"/>
+  </rect>
+  <text x="700" y="836" font-size="16" font-weight="bold" fill="#d9f7e8" text-anchor="middle">数字设计无问题 · 约束缺失 = 流程问题（FPGA 侧）</text>
+  <text x="700" y="864" font-size="13" fill="#a7e6c8" text-anchor="middle">一行命令级修复（create_clock）· 风险低</text>
+  <line x1="40" y1="912" x2="1360" y2="912" stroke="#2c517a" stroke-width="1"/>
+  <text x="40" y="932" font-size="11" fill="#5f85ab">VU440 XDC 约束审查 · BLOCKER：master 未 create_clock → 22 时钟派生树全失效（42 No clocks matched + 20 CRITICAL）· HIGH：三类约束全 0 · 一行修复</text>
+</svg>

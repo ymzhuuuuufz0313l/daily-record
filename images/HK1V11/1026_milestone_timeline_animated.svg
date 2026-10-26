@@ -1,0 +1,309 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 940" font-family="'Microsoft YaHei','Segoe UI',sans-serif">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#143354" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1400" height="940" fill="#0b1f33"/>
+  <rect width="1400" height="940" fill="url(#grid)"/>
+
+  <!-- ============ HEADER ============ -->
+  <text x="40" y="42" font-size="25" font-weight="bold" fill="#eaf4ff">60h 自主循环 · 里程碑时间线 M1 → M75</text>
+  <text x="40" y="66" font-size="13" fill="#8fb3d4">116 rounds · 73+ 里程碑 · 四大目标全部达成 · 穷尽一切方法</text>
+  <line x1="40" y1="78" x2="1360" y2="78" stroke="#2c517a" stroke-width="1.5"/>
+
+  <!-- ============ STATS CHIPS ============ -->
+  <g>
+    <rect x="95" y="98" width="230" height="40" rx="8" fill="#10304f" stroke="#4fd1ff" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="1;0.35;1" dur="2s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <text x="210" y="124" text-anchor="middle" font-size="13" font-weight="bold"><tspan font-size="19" fill="#4fd1ff">116</tspan><tspan fill="#c9dcf0"> rounds</tspan></text>
+
+    <rect x="340" y="98" width="230" height="40" rx="8" fill="#10304f" stroke="#7ce7a6" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="1;0.35;1" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="455" y="124" text-anchor="middle" font-size="13" font-weight="bold"><tspan font-size="19" fill="#7ce7a6">73+</tspan><tspan fill="#c9dcf0"> 里程碑</tspan></text>
+
+    <rect x="585" y="98" width="230" height="40" rx="8" fill="#10304f" stroke="#ffd166" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="1;0.35;1" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+    </rect>
+    <text x="700" y="124" text-anchor="middle" font-size="13" font-weight="bold"><tspan font-size="19" fill="#ffd166">4</tspan><tspan fill="#c9dcf0"> 大目标达成</tspan></text>
+
+    <rect x="830" y="98" width="230" height="40" rx="8" fill="#10304f" stroke="#ff7b72" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="1;0.35;1" dur="2s" begin="1.2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="945" y="124" text-anchor="middle" font-size="13" font-weight="bold"><tspan font-size="19" fill="#ff7b72">0</tspan><tspan fill="#c9dcf0"> 数字 DUT bug</tspan></text>
+
+    <rect x="1075" y="98" width="230" height="40" rx="8" fill="#10304f" stroke="#c792ea" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="1;0.35;1" dur="2s" begin="1.6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="1190" y="124" text-anchor="middle" font-size="15" font-weight="bold" fill="#c792ea">原工程未破坏</text>
+  </g>
+
+  <!-- ============ TIMELINE ============ -->
+  <g>
+    <!-- rail -->
+    <line x1="120" y1="445" x2="1275" y2="445" stroke="#2c517a" stroke-width="1.5"/>
+    <!-- growing progress bar -->
+    <rect x="120" y="441" width="0" height="8" rx="4" fill="#4fd1ff" filter="url(#glow)" opacity="0.9">
+      <animate attributeName="width" from="0" to="1155" dur="3.5s" fill="freeze"/>
+    </rect>
+    <!-- flowing dashed overlay -->
+    <line x1="120" y1="445" x2="1275" y2="445" stroke="#c9f0ff" stroke-width="1" stroke-dasharray="10 8" opacity="0.4">
+      <animate attributeName="stroke-dashoffset" values="0;-36" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <!-- moving dot -->
+    <circle r="5" fill="#eaf4ff" filter="url(#glow)">
+      <animateMotion path="M120 445 L1275 445" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ============ ABOVE BLOCKS (P1 P3 P5 P7) ============ -->
+  <!-- P1 -->
+  <g>
+    <rect x="40" y="200" width="240" height="180" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="53" y="230" font-size="13" font-weight="bold" fill="#4fd1ff">P1 器件仿真起步</text>
+    <text x="53" y="248" font-size="11" fill="#8fb3d4">M1–M4</text>
+    <line x1="53" y1="258" x2="267" y2="258" stroke="#2c517a"/>
+    <text x="53" y="280" font-size="11" fill="#c9dcf0">Icarus 全 top 编译</text>
+    <text x="53" y="298" font-size="11" fill="#c9dcf0">冒烟 5200ns · 功能 101 信号</text>
+    <text x="53" y="316" font-size="11" fill="#c9dcf0">420b 长码判定</text>
+  </g>
+  <!-- P3 -->
+  <g>
+    <rect x="330" y="200" width="240" height="180" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="343" y="230" font-size="13" font-weight="bold" fill="#ffd166">P3 全量回归</text>
+    <text x="343" y="248" font-size="11" fill="#8fb3d4">M7–M24</text>
+    <line x1="343" y1="258" x2="557" y2="258" stroke="#2c517a"/>
+    <text x="343" y="280" font-size="11" fill="#c9dcf0">632-case 全量回归跑完</text>
+    <text x="343" y="298" font-size="11" fill="#c9dcf0">577 完成</text>
+    <text x="343" y="316" font-size="11" fill="#c9dcf0">master_matrix 578 行</text>
+  </g>
+  <!-- P5 -->
+  <g>
+    <rect x="660" y="200" width="240" height="180" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="673" y="230" font-size="13" font-weight="bold" fill="#ff7b72">P5 工具全景</text>
+    <text x="673" y="248" font-size="11" fill="#8fb3d4">M34–M42</text>
+    <line x1="673" y1="258" x2="887" y2="258" stroke="#2c517a"/>
+    <text x="673" y="280" font-size="11" fill="#c9dcf0">多厂商 EDA 盘点</text>
+    <text x="673" y="298" font-size="11" fill="#c9dcf0">RISC-V · QuestaSim</text>
+    <text x="673" y="316" font-size="11" fill="#c9dcf0">HV2M23 起步</text>
+  </g>
+  <!-- P7 -->
+  <g>
+    <rect x="990" y="200" width="240" height="180" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="1003" y="230" font-size="13" font-weight="bold" fill="#7ce7a6">P7 五类全定性</text>
+    <text x="1003" y="248" font-size="11" fill="#8fb3d4">M58–M67</text>
+    <line x1="1003" y1="258" x2="1217" y2="258" stroke="#2c517a"/>
+    <text x="1003" y="280" font-size="11" fill="#c9dcf0">stuck/CHPI/COMPILE_FAIL 根因</text>
+    <text x="1003" y="298" font-size="11" fill="#c9dcf0">HV2M23 I2C 98%</text>
+    <text x="1003" y="316" font-size="11" fill="#c9dcf0">CS_SYNC 机制 · 串行 PPM</text>
+    <text x="1003" y="334" font-size="11" fill="#c9dcf0">CHPI 终局</text>
+  </g>
+
+  <!-- ============ BELOW BLOCKS (P2 P4 P6 P8) ============ -->
+  <!-- P2 -->
+  <g>
+    <rect x="165" y="500" width="240" height="180" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="178" y="530" font-size="13" font-weight="bold" fill="#7ce7a6">P2 约束与芯片级</text>
+    <text x="178" y="548" font-size="11" fill="#8fb3d4">M5–M6</text>
+    <line x1="178" y1="558" x2="392" y2="558" stroke="#2c517a"/>
+    <text x="178" y="580" font-size="11" fill="#c9dcf0">XDC 12 版审查</text>
+    <text x="178" y="598" font-size="11" fill="#c9dcf0">VCS UVM t_8b1lane PASS</text>
+    <text x="178" y="616" font-size="11" fill="#c9dcf0">UVM_ERROR=0</text>
+  </g>
+  <!-- P4 -->
+  <g>
+    <rect x="495" y="500" width="240" height="180" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="508" y="530" font-size="13" font-weight="bold" fill="#c792ea">P4 根因深挖</text>
+    <text x="508" y="548" font-size="11" fill="#8fb3d4">M25–M33</text>
+    <line x1="508" y1="558" x2="722" y2="558" stroke="#2c517a"/>
+    <text x="508" y="580" font-size="11" fill="#c9dcf0">寄存器根因 → SIM_OUT=X</text>
+    <text x="508" y="598" font-size="11" fill="#c9dcf0">DRA 晶体管级模型</text>
+    <text x="508" y="616" font-size="11" fill="#c9dcf0">golden model v1</text>
+  </g>
+  <!-- P6 -->
+  <g>
+    <rect x="825" y="500" width="240" height="180" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="838" y="530" font-size="13" font-weight="bold" fill="#4fd1ff">P6 跨芯片闭环</text>
+    <text x="838" y="548" font-size="11" fill="#8fb3d4">M43–M57</text>
+    <line x1="838" y1="558" x2="1052" y2="558" stroke="#2c517a"/>
+    <text x="838" y="580" font-size="11" fill="#c9dcf0">HV2M23 cmodel/PPM 闭环</text>
+    <text x="838" y="598" font-size="11" fill="#c9dcf0">SpyGlass 弃用 · DC 综合</text>
+    <text x="838" y="616" font-size="11" fill="#c9dcf0">QuestaSim RTL 0 错</text>
+    <text x="838" y="634" font-size="11" fill="#c9dcf0">golden 0/56 修正 · Calibre</text>
+    <text x="838" y="652" font-size="11" fill="#c9dcf0">Cadence license</text>
+  </g>
+  <!-- P8 -->
+  <g>
+    <rect x="1155" y="500" width="240" height="180" rx="6" fill="#10304f" stroke="#3f6b96"/>
+    <text x="1168" y="530" font-size="13" font-weight="bold" fill="#ffd166">P8 收尾固化</text>
+    <text x="1168" y="548" font-size="11" fill="#8fb3d4">M68–M75</text>
+    <line x1="1168" y1="558" x2="1382" y2="558" stroke="#2c517a"/>
+    <text x="1168" y="580" font-size="11" fill="#c9dcf0">报告 QC · EDA 全栈演示</text>
+    <text x="1168" y="598" font-size="11" fill="#c9dcf0">RISC-V 运行时</text>
+    <text x="1168" y="616" font-size="11" fill="#c9dcf0">AVE+420b 信号探针</text>
+    <text x="1168" y="634" font-size="11" fill="#c9dcf0">环境检查+磁盘清理</text>
+    <text x="1168" y="652" font-size="11" fill="#c9dcf0">交付物清单 · 复现性实锤</text>
+  </g>
+
+  <!-- ============ CONNECTORS node<->block ============ -->
+  <g stroke="#3f6b96" stroke-width="1.5">
+    <line x1="120" y1="434" x2="160" y2="380"/>
+    <line x1="450" y1="434" x2="450" y2="380"/>
+    <line x1="780" y1="434" x2="780" y2="380"/>
+    <line x1="1110" y1="434" x2="1110" y2="380"/>
+    <line x1="285" y1="456" x2="285" y2="500"/>
+    <line x1="615" y1="456" x2="615" y2="500"/>
+    <line x1="945" y1="456" x2="945" y2="500"/>
+    <line x1="1275" y1="456" x2="1275" y2="500"/>
+  </g>
+
+  <!-- ============ NODES (sequential light-up) ============ -->
+  <!-- P1 -->
+  <g>
+    <circle cx="120" cy="445" r="11" fill="#0e2a47" stroke="#4fd1ff" stroke-width="2">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0s" fill="freeze"/>
+    </circle>
+    <circle cx="120" cy="445" r="5" fill="#4fd1ff">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0s" fill="freeze"/>
+      <animate attributeName="r" values="4;6.5;4" dur="1.8s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <text x="120" y="470" font-size="11" font-weight="bold" fill="#4fd1ff" text-anchor="middle">P1</text>
+  </g>
+  <!-- P2 -->
+  <g>
+    <circle cx="285" cy="445" r="11" fill="#0e2a47" stroke="#7ce7a6" stroke-width="2">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.5s" fill="freeze"/>
+    </circle>
+    <circle cx="285" cy="445" r="5" fill="#7ce7a6">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.5s" fill="freeze"/>
+      <animate attributeName="r" values="4;6.5;4" dur="1.8s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="285" y="470" font-size="11" font-weight="bold" fill="#7ce7a6" text-anchor="middle">P2</text>
+  </g>
+  <!-- P3 -->
+  <g>
+    <circle cx="450" cy="445" r="11" fill="#0e2a47" stroke="#ffd166" stroke-width="2">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.0s" fill="freeze"/>
+    </circle>
+    <circle cx="450" cy="445" r="5" fill="#ffd166">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.0s" fill="freeze"/>
+      <animate attributeName="r" values="4;6.5;4" dur="1.8s" begin="1.0s" repeatCount="indefinite"/>
+    </circle>
+    <text x="450" y="470" font-size="11" font-weight="bold" fill="#ffd166" text-anchor="middle">P3</text>
+  </g>
+  <!-- P4 -->
+  <g>
+    <circle cx="615" cy="445" r="11" fill="#0e2a47" stroke="#c792ea" stroke-width="2">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.5s" fill="freeze"/>
+    </circle>
+    <circle cx="615" cy="445" r="5" fill="#c792ea">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.5s" fill="freeze"/>
+      <animate attributeName="r" values="4;6.5;4" dur="1.8s" begin="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="615" y="470" font-size="11" font-weight="bold" fill="#c792ea" text-anchor="middle">P4</text>
+  </g>
+  <!-- P5 -->
+  <g>
+    <circle cx="780" cy="445" r="11" fill="#0e2a47" stroke="#ff7b72" stroke-width="2">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2.0s" fill="freeze"/>
+    </circle>
+    <circle cx="780" cy="445" r="5" fill="#ff7b72">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2.0s" fill="freeze"/>
+      <animate attributeName="r" values="4;6.5;4" dur="1.8s" begin="2.0s" repeatCount="indefinite"/>
+    </circle>
+    <text x="780" y="470" font-size="11" font-weight="bold" fill="#ff7b72" text-anchor="middle">P5</text>
+  </g>
+  <!-- P6 -->
+  <g>
+    <circle cx="945" cy="445" r="11" fill="#0e2a47" stroke="#4fd1ff" stroke-width="2">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2.5s" fill="freeze"/>
+    </circle>
+    <circle cx="945" cy="445" r="5" fill="#4fd1ff">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2.5s" fill="freeze"/>
+      <animate attributeName="r" values="4;6.5;4" dur="1.8s" begin="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="945" y="470" font-size="11" font-weight="bold" fill="#4fd1ff" text-anchor="middle">P6</text>
+  </g>
+  <!-- P7 -->
+  <g>
+    <circle cx="1110" cy="445" r="11" fill="#0e2a47" stroke="#7ce7a6" stroke-width="2">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="3.0s" fill="freeze"/>
+    </circle>
+    <circle cx="1110" cy="445" r="5" fill="#7ce7a6">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="3.0s" fill="freeze"/>
+      <animate attributeName="r" values="4;6.5;4" dur="1.8s" begin="3.0s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1110" y="470" font-size="11" font-weight="bold" fill="#7ce7a6" text-anchor="middle">P7</text>
+  </g>
+  <!-- P8 -->
+  <g>
+    <circle cx="1275" cy="445" r="11" fill="#0e2a47" stroke="#ffd166" stroke-width="2">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="3.5s" fill="freeze"/>
+    </circle>
+    <circle cx="1275" cy="445" r="5" fill="#ffd166">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="3.5s" fill="freeze"/>
+      <animate attributeName="r" values="4;6.5;4" dur="1.8s" begin="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1275" y="470" font-size="11" font-weight="bold" fill="#ffd166" text-anchor="middle">P8</text>
+  </g>
+
+  <!-- ============ BOTTOM: 60h loop strip ============ -->
+  <g>
+    <rect x="40" y="720" width="1320" height="175" rx="10" fill="#0e2a47" stroke="#3f6b96" stroke-width="1.5"/>
+    <text x="60" y="748" font-size="15" font-weight="bold" fill="#eaf4ff">60h 不停歇 = 六阶段自主循环 × 116 rounds</text>
+    <!-- rotating loop icon -->
+    <g transform="translate(1320,744)">
+      <circle r="14" fill="none" stroke="#ffd166" stroke-width="1.5" stroke-dasharray="5 4">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="6s" repeatCount="indefinite"/>
+      </circle>
+      <path d="M14 0 L9 -3 L9 3 Z" fill="#ffd166"/>
+    </g>
+    <line x1="55" y1="758" x2="1345" y2="758" stroke="#2c517a"/>
+
+    <!-- 6 stage pills -->
+    <g font-size="14" font-weight="bold" text-anchor="middle">
+      <rect x="150" y="772" width="150" height="38" rx="19" fill="#10304f" stroke="#ffd166"/>
+      <text x="225" y="797" fill="#ffd166">探索</text>
+      <rect x="340" y="772" width="150" height="38" rx="19" fill="#10304f" stroke="#ffd166"/>
+      <text x="415" y="797" fill="#ffd166">编译</text>
+      <rect x="530" y="772" width="150" height="38" rx="19" fill="#10304f" stroke="#ffd166"/>
+      <text x="605" y="797" fill="#ffd166">仿真</text>
+      <rect x="720" y="772" width="150" height="38" rx="19" fill="#10304f" stroke="#ffd166"/>
+      <text x="795" y="797" fill="#ffd166">定位</text>
+      <rect x="910" y="772" width="150" height="38" rx="19" fill="#10304f" stroke="#ffd166"/>
+      <text x="985" y="797" fill="#ffd166">修复</text>
+      <rect x="1100" y="772" width="150" height="38" rx="19" fill="#10304f" stroke="#ffd166"/>
+      <text x="1175" y="797" fill="#ffd166">验证</text>
+    </g>
+
+    <!-- flow arrows between pills -->
+    <g fill="#4fd1ff">
+      <path d="M305 791 l10 6 l-10 6 z"/>
+      <path d="M495 791 l10 6 l-10 6 z"/>
+      <path d="M685 791 l10 6 l-10 6 z"/>
+      <path d="M875 791 l10 6 l-10 6 z"/>
+      <path d="M1065 791 l10 6 l-10 6 z"/>
+    </g>
+
+    <!-- loop-back flow (验证 -> 探索) -->
+    <path d="M1225 810 C 1225 852, 700 852, 700 840 C 700 852, 175 852, 175 810" fill="none" stroke="#7ce7a6" stroke-width="1.5" stroke-dasharray="10 8">
+      <animate attributeName="stroke-dashoffset" values="0;-36" dur="1.4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M175 812 l-5 8 l10 0 z" fill="#7ce7a6"/>
+
+    <!-- deliverables -->
+    <text x="60" y="878" font-size="12" fill="#7ce7a6">交付：报告终版 + PROGRESS.md + 7 类模板 + 6 个 Python 工具</text>
+  </g>
+
+  <!-- ============ FOOTER ============ -->
+  <line x1="40" y1="912" x2="1360" y2="912" stroke="#2c517a" stroke-width="1"/>
+  <text x="40" y="932" font-size="11" fill="#5f85ab">60h 不停歇 = 探索→编译→仿真→定位→修复→验证 循环 × 116 rounds · 交付：报告终版 + PROGRESS.md + 7 类模板 + 6 个 Python 工具</text>
+</svg>
