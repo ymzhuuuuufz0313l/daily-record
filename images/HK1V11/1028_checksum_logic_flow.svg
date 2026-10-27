@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 900" width="1240" height="900">
+<rect width="1240" height="900" fill="#ffffff"/>
+<defs>
+<marker id="arr_0e7490" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="9" markerHeight="6.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#0e7490"/></marker>
+<marker id="arr_6b7280" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="9" markerHeight="6.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#6b7280"/></marker>
+<marker id="arr_b45309" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="9" markerHeight="6.5" orient="auto"><path d="M0,0 L10,3.5 L0,7 Z" fill="#b45309"/></marker>
+</defs>
+<style>
+.chg { animation: chgPulse 2s ease-in-out infinite; }
+@keyframes chgPulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+.gate rect { animation: gatePulse 3.2s ease-in-out infinite; }
+@keyframes gatePulse { 0%,100% { stroke-opacity:1; } 50% { stroke-opacity:0.4; } }
+.flow0 { stroke-dasharray: 7 98; animation: pkt0 0.71s linear infinite; }
+@keyframes pkt0 { from { stroke-dashoffset: 106; } to { stroke-dashoffset: 0; } }
+.flow1 { stroke-dasharray: 7 334; animation: pkt1 2.28s linear infinite; }
+@keyframes pkt1 { from { stroke-dashoffset: 342; } to { stroke-dashoffset: 0; } }
+.flow2 { stroke-dasharray: 7 114; animation: pkt2 0.81s linear infinite; }
+@keyframes pkt2 { from { stroke-dashoffset: 122; } to { stroke-dashoffset: 0; } }
+.flow3 { stroke-dasharray: 7 388.0; animation: pkt3 2.64s linear infinite; }
+@keyframes pkt3 { from { stroke-dashoffset: 396.0; } to { stroke-dashoffset: 0; } }
+.flow4 { stroke-dasharray: 7 114; animation: pkt4 0.81s linear infinite; }
+@keyframes pkt4 { from { stroke-dashoffset: 122; } to { stroke-dashoffset: 0; } }
+</style>
+<text x="620" y="36" font-size="22" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b" text-anchor="middle" font-weight="800">LC_CPUWR Seg1 Checksum 实现逻辑（WCK1_A 单域 · 三帧一致提交）</text>
+<text x="620" y="58" font-size="12.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">0721v1 3B/beat 按字节有效性折叠  ·  1023v1-E2 比较合法性防护  ·  1027v1-B 修复 0x0A 覆盖</text>
+<text x="40" y="92" font-size="13" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b" font-weight="700">① 帧数据流 —— 每拍 3 字节（C/D/F 槽），xdata_a 按拍选择参与字节</text>
+<rect x="40" y="104" width="138" height="92" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="109.0" y="126" font-size="13" font-family="Consolas, Monaco, monospace" fill="#0e7490" text-anchor="middle" font-weight="700">5'h01</text>
+<text x="109.0" y="148" font-size="12" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">C^D^F</text>
+<text x="109.0" y="168" font-size="10.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle">0x00 · 01 · 02</text>
+<text x="109.0" y="186" font-size="9.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">全参与</text>
+<rect x="186" y="104" width="138" height="92" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="255.0" y="126" font-size="13" font-family="Consolas, Monaco, monospace" fill="#0e7490" text-anchor="middle" font-weight="700">5'h02</text>
+<text x="255.0" y="148" font-size="12" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">C^D^F</text>
+<text x="255.0" y="168" font-size="10.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle">0x03 · 04 · 05</text>
+<text x="255.0" y="186" font-size="9.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">全参与</text>
+<rect x="332" y="104" width="138" height="92" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="401.0" y="126" font-size="13" font-family="Consolas, Monaco, monospace" fill="#0e7490" text-anchor="middle" font-weight="700">5'h03</text>
+<text x="401.0" y="148" font-size="12" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">C^F</text>
+<text x="401.0" y="168" font-size="10.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle">0x06 · 0x08</text>
+<text x="401.0" y="186" font-size="9.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">0x07 ✗ 控制</text>
+<g class="chg">
+<rect x="478" y="104" width="138" height="92" fill="#ccfbf1" stroke="#b45309" stroke-width="1.6" rx="6"/>
+<text x="547.0" y="126" font-size="13" font-family="Consolas, Monaco, monospace" fill="#b45309" text-anchor="middle" font-weight="700">5'h04</text>
+<text x="547.0" y="148" font-size="12" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">C^D</text>
+<text x="547.0" y="168" font-size="10.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle">0x09 · 0x0A</text>
+<text x="547.0" y="186" font-size="9.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">0x0B gap</text>
+<path d="M 602,109 L 609,116 L 602,123 L 595,116 Z" fill="#b45309"/>
+<rect x="624" y="104" width="138" height="92" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.25" rx="6" stroke-dasharray="5,3"/>
+</g>
+<text x="693.0" y="126" font-size="13" font-family="Consolas, Monaco, monospace" fill="#0e7490" text-anchor="middle" font-weight="700">gap 05-09</text>
+<text x="693.0" y="148" font-size="12" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">—</text>
+<text x="693.0" y="168" font-size="10.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle">0x0C ~ 0x1A</text>
+<text x="693.0" y="186" font-size="9.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">无参与字节</text>
+<rect x="770" y="104" width="138" height="92" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="839.0" y="126" font-size="13" font-family="Consolas, Monaco, monospace" fill="#0e7490" text-anchor="middle" font-weight="700">5'h0A</text>
+<text x="839.0" y="148" font-size="12" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">F</text>
+<text x="839.0" y="168" font-size="10.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle">0x1D</text>
+<text x="839.0" y="186" font-size="9.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">0x1B/1C gap</text>
+<rect x="916" y="104" width="138" height="92" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="985.0" y="126" font-size="13" font-family="Consolas, Monaco, monospace" fill="#0e7490" text-anchor="middle" font-weight="700">5'h0B</text>
+<text x="985.0" y="148" font-size="12" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">C^D</text>
+<text x="985.0" y="168" font-size="10.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle">0x1E · 0x1F</text>
+<text x="985.0" y="186" font-size="9.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">0x20 ✗ 出窗</text>
+<rect x="1062" y="104" width="138" height="92" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="1131.0" y="126" font-size="13" font-family="Consolas, Monaco, monospace" fill="#0e7490" text-anchor="middle" font-weight="700">5'h0E</text>
+<text x="1131.0" y="148" font-size="12" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">C</text>
+<text x="1131.0" y="168" font-size="10.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle">0x27 帧尾</text>
+<text x="1131.0" y="186" font-size="9.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">0x28/29 ✗</text>
+<path d="M 620,202 L 620,236" stroke="#0e7490" stroke-width="2.5" fill="none" marker-end="url(#arr_0e7490)" stroke-linecap="round"/>
+<text x="630" y="226" font-size="11" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#0e7490">xdata_a（逐拍送入 XOR）</text>
+<text x="40" y="262" font-size="13" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b" font-weight="700">② 累加与锁存</text>
+<rect x="140" y="276" width="360" height="84" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="320" y="296" font-size="13" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b" text-anchor="middle" font-weight="700">运行 XOR 累加器  xsum_a</text>
+<text x="320" y="316" font-size="10.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">frame_start 直存首拍 · xor_en 逐拍 ^xdata_a · 帧尾拍不累加</text>
+<text x="320" y="334" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">复位/退出 chksum_mode 清 0</text>
+<rect x="770" y="276" width="340" height="84" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="940" y="296" font-size="13" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b" text-anchor="middle" font-weight="700">上一帧全帧 XOR  prev_xsum_a</text>
+<text x="940" y="316" font-size="10.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">frame_end 拍锁存 xsum_a ^ xdata_a</text>
+<text x="940" y="334" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">prev_valid_a=1 才允许参与比较（1023v1）</text>
+<path d="M 500,318 L 770,318" stroke="#0e7490" stroke-width="2.5" fill="none" marker-end="url(#arr_0e7490)" stroke-linecap="round"/>
+<text x="635.0" y="308" font-size="10.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#0e7490" text-anchor="middle">帧尾锁存（^ 0x27 校验字节）</text>
+<text x="40" y="396" font-size="13" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b" font-weight="700">③ 帧尾比较 + 合法性防护</text>
+<rect x="100" y="410" width="440" height="96" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="320" y="432" font-size="13" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b" text-anchor="middle" font-weight="700">match_a 判据（帧尾拍）</text>
+<text x="320" y="452" font-size="11.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle">(xsum_a ^ xdata_a) == prev_xsum_a  &amp;&amp;  frame_end_a</text>
+<text x="320" y="472" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">xdata_a@帧尾 = 0x27 校验字节（DATA_C 槽）</text>
+<text x="320" y="490" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">两帧一致 ⇔ 本帧数据+校验 与历史累计吻合</text>
+<rect x="770" y="410" width="340" height="96" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="940" y="432" font-size="13" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b" text-anchor="middle" font-weight="700">防护 cmp_valid_a（1023v1-E2）</text>
+<text x="940" y="452" font-size="11.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle">prev_valid_a &amp; frm_seen_start_a</text>
+<text x="940" y="472" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">幻影首帧 / 截断残帧 / 模式中途进入 → 不比较</text>
+<text x="940" y="490" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#b45309" text-anchor="middle">防护帧完整性，不防字节覆盖洞（见 1027v1-B）</text>
+<path d="M 320,360 L 320,410" stroke="#0e7490" stroke-width="2.5" fill="none" marker-end="url(#arr_0e7490)" stroke-linecap="round"/>
+<path d="M 940,360 L 940,410" stroke="#6b7280" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arr_6b7280)" stroke-linecap="round"/>
+<text x="630.0" y="400" font-size="10.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">prev_xsum_a</text>
+<rect x="460.0" y="540" width="380" height="52" fill="#ccfbf1" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="650.0" y="562" font-size="12.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">match_eff_a = match_a &amp; cmp_valid_a</text>
+<text x="650.0" y="582" font-size="9.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">合法比较结果，四消费点唯一入口</text>
+<path d="M 320,506 L 610.0,540" stroke="#0e7490" stroke-width="2.5" fill="none" marker-end="url(#arr_0e7490)" stroke-linecap="round"/>
+<path d="M 940,506 L 690.0,540" stroke="#6b7280" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arr_6b7280)" stroke-linecap="round"/>
+<text x="40" y="626" font-size="13" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b" font-weight="700">④ 提交门控与计数</text>
+<rect x="80" y="640" width="210" height="72" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="185" y="668" font-size="12.5" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">match_cnt_a（1bit）</text>
+<text x="185" y="688" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">上一帧合法匹配标志</text>
+<g class="gate">
+<rect x="340" y="640" width="250" height="72" fill="#ecfdf5" stroke="#16a34a" stroke-width="1.6" rx="6"/>
+<text x="465" y="666" font-size="13.5" font-family="Consolas, Monaco, monospace" fill="#166534" text-anchor="middle" font-weight="800">update_en_a</text>
+<text x="465" y="686" font-size="10.5" font-family="Consolas, Monaco, monospace" fill="#166534" text-anchor="middle">match_cnt_a &amp; match_eff_a</text>
+<text x="465" y="702" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#166534" text-anchor="middle">→ shadow 整帧提交 active</text>
+</g>
+<rect x="660" y="640" width="210" height="72" fill="#ffffff" stroke="#94a3b8" stroke-width="1.25" rx="6"/>
+<text x="765" y="668" font-size="12" font-family="Consolas, Monaco, monospace" fill="#1e293b" text-anchor="middle" font-weight="700">unmatch_cnt_a（3bit）</text>
+<text x="765" y="688" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">合法 mismatch 连续计数</text>
+<rect x="930" y="640" width="250" height="72" fill="#fff7ed" stroke="#fb923c" stroke-width="1.25" rx="6"/>
+<text x="1055" y="668" font-size="12" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#c2410c" text-anchor="middle" font-weight="700">连续 5 次 → unlock_one_shot</text>
+<text x="1055" y="688" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#c2410c" text-anchor="middle">直写通路解锁（one-shot）</text>
+<path d="M 650.0,592 L 650.0,610" stroke="#6b7280" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arr_6b7280)" stroke-linecap="round"/>
+<path d="M 650.0,610 L 465,636" stroke="#6b7280" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arr_6b7280)" stroke-linecap="round"/>
+<path d="M 650.0,610 L 765,636" stroke="#6b7280" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arr_6b7280)" stroke-linecap="round"/>
+<path d="M 290,676 L 340,676" stroke="#0e7490" stroke-width="2.5" fill="none" marker-end="url(#arr_0e7490)" stroke-linecap="round"/>
+<path d="M 870,676 L 930,676" stroke="#b45309" stroke-width="2" fill="none" marker-end="url(#arr_b45309)" stroke-linecap="round"/>
+<text x="990" y="628" font-size="9.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b" text-anchor="middle">match_eff_a=0 时计数</text>
+<rect x="80" y="744" width="1080" height="92" fill="#fff7ed" stroke="#fb923c" stroke-width="1.6" rx="6"/>
+<path d="M 100,755 L 108,763 L 100,771 L 92,763 Z" fill="#c2410c"/>
+<text x="118" y="768" font-size="13" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#c2410c" font-weight="800">1027v1-B 修复（2026-10-27，DV boundary_chip1 F30 暴露）</text>
+<text x="100" y="790" font-size="11" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b">xdata_a 三元链曾漏写 5'h04 分支（落默认 DATA_C）→ 0x0A 三个月未进入运行 XOR：仅改 0x0A+陈旧校验的帧假匹配误提交（F30 实测），</text>
+<text x="100" y="808" font-size="11" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#1e293b">改 0x0A+正确校验的帧假 mismatch（提交被阻+unmatch 污染）。补 (5'h04)?(DATA_C^DATA_D) 一行后，参与集恢复 0716v1_work 等价集（上图 ◆ 卡即修复点）。</text>
+<text x="100" y="826" font-size="10" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b">同类错误六轴排查无其他问题；验证脚本 script/xcheck_1027v1_xdata_a.py / xcheck_1027v1_similar.py</text>
+<path d="M 80,858 L 130,858" stroke="#0e7490" stroke-width="2.5" marker-end="url(#arr_0e7490)"/>
+<text x="140" y="862" font-size="10.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b">数据流（流光点=流向）</text>
+<path d="M 330,858 L 380,858" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr_6b7280)"/>
+<text x="390" y="862" font-size="10.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b">控制/判据</text>
+<rect x="500" y="850" width="18" height="12" fill="#ccfbf1" stroke="#b45309" stroke-width="1.4" rx="3"/>
+<text x="526" y="862" font-size="10.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b">修复点（呼吸高亮）</text>
+<rect x="680" y="850" width="18" height="12" fill="#ecfdf5" stroke="#16a34a" stroke-width="1.4" rx="3"/>
+<text x="706" y="862" font-size="10.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b">提交门（呼吸）</text>
+<rect x="840" y="850" width="18" height="12" fill="#fff7ed" stroke="#fb923c" stroke-width="1.4" rx="3"/>
+<text x="866" y="862" font-size="10.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b">mismatch / unlock 侧</text>
+<rect x="1010" y="850" width="18" height="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2" rx="3" stroke-dasharray="4,3"/>
+<text x="1036" y="862" font-size="10.5" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#64748b">gap（无参与字节）</text>
+<path class="flow0" d="M 620,202 L 620,236" fill="none" stroke="#0e7490" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+<path class="flow1" d="M 500,318 L 770,318" fill="none" stroke="#0e7490" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+<path class="flow2" d="M 320,360 L 320,410" fill="none" stroke="#0e7490" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+<path class="flow3" d="M 320,506 L 610.0,540" fill="none" stroke="#0e7490" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+<path class="flow4" d="M 290,676 L 340,676" fill="none" stroke="#0e7490" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+</svg>
