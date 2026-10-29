@@ -1,0 +1,327 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1520" viewBox="0 0 1440 1520" fill="#1c2534">
+<defs>
+<pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M 56 0 L 0 0 0 56" fill="none" stroke="#ddd6c8" stroke-width="0.5"/></pattern>
+<marker id="m_green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker>
+<marker id="m_red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker>
+<marker id="m_ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2534"/></marker>
+<marker id="m_data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0e7490"/></marker>
+<marker id="m_amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker>
+<marker id="m_blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker>
+<marker id="m_mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b6675"/></marker>
+<linearGradient id="sweepgrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f7e8d4" stop-opacity="0"/><stop offset="0.5" stop-color="#b45309" stop-opacity="0.55"/><stop offset="1" stop-color="#f7e8d4" stop-opacity="0"/></linearGradient>
+</defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans SC","Courier New",monospace}.mono{font-family:"Consolas","Microsoft YaHei","Courier New",monospace}.mut{fill:#5b6675}</style>
+<style>
+.row{opacity:0;animation:rowIn .55s cubic-bezier(.22,.7,.3,1) forwards}
+.head{opacity:0;animation:rowIn .55s cubic-bezier(.22,.7,.3,1) forwards}
+@keyframes rowIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.draw{stroke-dasharray:100;animation:drawIn .6s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes drawIn{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+.fade{opacity:0;animation:fadeIn .6s ease forwards}
+@keyframes fadeIn{to{opacity:1}}
+.flowdot{fill:none;stroke-linecap:round;stroke-dasharray:9 91;stroke-width:3.5;animation:flow 1.5s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-100}}
+.flowtail{fill:none;stroke-linecap:round;stroke-dasharray:4 96;stroke-width:8;opacity:.25;animation:flow 1.5s linear infinite}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(180,83,9,0))}50%{transform:scale(1.03);filter:drop-shadow(0 0 12px rgba(180,83,9,.8))}}
+.pulse-t{transform-box:fill-box;transform-origin:center;animation:pulseT 2.8s ease-in-out infinite}
+@keyframes pulseT{0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(14,116,144,0))}50%{transform:scale(1.03);filter:drop-shadow(0 0 12px rgba(14,116,144,.8))}}
+.pulse-b{transform-box:fill-box;transform-origin:center;animation:pulseB 2.8s ease-in-out infinite}
+@keyframes pulseB{0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(29,78,216,0))}50%{transform:scale(1.03);filter:drop-shadow(0 0 12px rgba(29,78,216,.8))}}
+.sweepband{opacity:.85;animation:sweepMove 8s linear infinite}
+@keyframes sweepMove{to{transform:translateX(var(--sweepP,160px))}}
+.dashgrow{stroke-dasharray:7 5;animation:dashgrow 2.6s linear infinite}
+@keyframes dashgrow{from{stroke-dashoffset:72}to{stroke-dashoffset:0}}
+.march{animation:march 1.5s linear infinite}
+@keyframes march{to{stroke-dashoffset:-16}}
+.cellwave{transform-box:fill-box;transform-origin:center;animation:wave 2.6s ease-in-out infinite}
+@keyframes wave{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.72;transform:scale(1.01)}}
+.breathe{animation:br 3.2s ease-in-out infinite}
+@keyframes br{0%,100%{opacity:1}50%{opacity:.55}}
+.step{transform-box:fill-box;transform-origin:center;animation:stepLit 6s ease-in-out infinite}
+@keyframes stepLit{0%,16%{filter:drop-shadow(0 0 9px rgba(29,78,216,.85));transform:scale(1.02)}24%,92%{filter:drop-shadow(0 0 0 rgba(29,78,216,0));transform:none}100%{filter:drop-shadow(0 0 9px rgba(29,78,216,.85));transform:scale(1.02)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.row,.head,.fade{opacity:1!important}.flowdot,.flowtail,.sweepband{display:none!important}}
+</style>
+<rect width="1440" height="1520" fill="#f4f1ea"/>
+<rect width="1440" height="1520" fill="url(#grid)" opacity="0.45"/>
+<text x="14" y="40" font-size="11" fill="#b45309" class="mono">HK1V11 · SKEW PROBE AUDIT · 1028 RUN · wc_cworst_125 为主证角</text>
+<text x="14" y="72" font-size="22" font-weight="bold"><tspan fill="#b45309">假出窗与真贴零</tspan> — sd margin 探针污染 · phy rx0 行语义 · 三约束如何决定 csv</text>
+<rect class="fade" x="40" y="96" width="1360" height="380" rx="2" fill="#fffdf7" stroke="#c9bfa8" stroke-width="1.5"/>
+<text x="60" y="124" font-size="16.5" font-weight="bold" letter-spacing="0.05em">① sd margin 窗口机制 — margin_min = data_min − clk_max；时钟端被数据路径冒充 → 假出窗（l 侧 wc_cworst_125）</text>
+<text x="60" y="160" font-size="12.5">l 侧（CLKB_L）</text>
+<rect x="414.9" y="168" width="255.1" height="18" rx="2" fill="#1c2534" opacity="0.28"/>
+<line x1="414.9" y1="168" x2="414.9" y2="186" stroke="#1c2534" stroke-width="2.5"/>
+<line x1="670.0" y1="168" x2="670.0" y2="186" stroke="#1c2534" stroke-width="2.5" class="clktrue"/>
+<text x="443.0" y="206" font-size="11.5" fill="#1c2534">真 DPLC 时钟窗 4.492146 ~ 5.470022（rpt 内 6 条真时钟路径）</text>
+<rect x="476.0" y="222" width="339.5" height="18" rx="2" fill="#0e7490" opacity="0.22"/>
+<line x1="476.0" y1="222" x2="476.0" y2="240" stroke="#0e7490" stroke-width="2.5"/>
+<line x1="815.5" y1="222" x2="815.5" y2="240" stroke="#0e7490" stroke-width="2.5"/>
+<text x="782.2" y="260" font-size="11.5" fill="#0e7490">数据窗（DB1/3/5 + start → DBL/SLIN）4.726426 ~ 6.027894</text>
+<line x1="1131.5" y1="150" x2="1131.5" y2="300" stroke="#b91c1c" stroke-width="2" stroke-dasharray="6,4" class="fade march"/>
+<text x="1131.5" y="158" font-size="11.5" fill="#b91c1c" text-anchor="middle">7.238948</text>
+<text x="1131.5" y="142" font-size="11" fill="#b91c1c" text-anchor="middle" class="mono">R_REG05_F_reg_7_ 数据路径冒充 clk_max</text>
+<line x1="130" y1="300" x2="1330" y2="300" stroke="#5b6675" stroke-width="1.5"/>
+<line x1="156.1" y1="300" x2="156.1" y2="306" stroke="#5b6675" stroke-width="1"/>
+<text x="156.1" y="320" font-size="11.5" text-anchor="middle" class="mono mut">3.5</text>
+<line x1="286.5" y1="300" x2="286.5" y2="306" stroke="#5b6675" stroke-width="1"/>
+<text x="286.5" y="320" font-size="11.5" text-anchor="middle" class="mono mut">4.0</text>
+<line x1="417.0" y1="300" x2="417.0" y2="306" stroke="#5b6675" stroke-width="1"/>
+<text x="417.0" y="320" font-size="11.5" text-anchor="middle" class="mono mut">4.5</text>
+<line x1="547.4" y1="300" x2="547.4" y2="306" stroke="#5b6675" stroke-width="1"/>
+<text x="547.4" y="320" font-size="11.5" text-anchor="middle" class="mono mut">5.0</text>
+<line x1="677.8" y1="300" x2="677.8" y2="306" stroke="#5b6675" stroke-width="1"/>
+<text x="677.8" y="320" font-size="11.5" text-anchor="middle" class="mono mut">5.5</text>
+<line x1="808.3" y1="300" x2="808.3" y2="306" stroke="#5b6675" stroke-width="1"/>
+<text x="808.3" y="320" font-size="11.5" text-anchor="middle" class="mono mut">6.0</text>
+<line x1="938.7" y1="300" x2="938.7" y2="306" stroke="#5b6675" stroke-width="1"/>
+<text x="938.7" y="320" font-size="11.5" text-anchor="middle" class="mono mut">6.5</text>
+<line x1="1069.1" y1="300" x2="1069.1" y2="306" stroke="#5b6675" stroke-width="1"/>
+<text x="1069.1" y="320" font-size="11.5" text-anchor="middle" class="mono mut">7.0</text>
+<line x1="1199.6" y1="300" x2="1199.6" y2="306" stroke="#5b6675" stroke-width="1"/>
+<text x="1199.6" y="320" font-size="11.5" text-anchor="middle" class="mono mut">7.5</text>
+<line x1="1330.0" y1="300" x2="1330.0" y2="306" stroke="#5b6675" stroke-width="1"/>
+<text x="1330.0" y="320" font-size="11.5" text-anchor="middle" class="mono mut">8.0</text>
+<text x="1338" y="304" font-size="12" class="mono mut">ns</text>
+<line x1="476.0" y1="278" x2="670.0" y2="278" stroke="#047857" stroke-width="2.5" marker-start="url(#m_data)" marker-end="url(#m_ink)"/>
+<text x="547.4" y="272" font-size="12" text-anchor="middle" fill="#047857">真 margin_min = −0.743596（窗内，余 0.156）</text>
+<line x1="670.0" y1="278" x2="1131.5" y2="278" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="7,4" marker-end="url(#m_red)"/>
+<text x="912.6" y="296" font-size="12" text-anchor="middle" fill="#b91c1c">假 margin_min = −2.512522（csv 现值，出窗 ❌）</text>
+<text x="60" y="336" font-size="12.5">r 侧（CLKB_R）</text>
+<rect x="267.6" y="344" width="307.1" height="14" rx="2" fill="#1c2534" opacity="0.28"/>
+<rect x="361.5" y="360" width="668.4" height="14" rx="2" fill="#0e7490" opacity="0.22"/>
+<line x1="1036.1" y1="344" x2="1036.1" y2="374" stroke="#b91c1c" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="1036.1" y="340" font-size="11" fill="#b91c1c" text-anchor="middle" class="mono">r 假 clk_max 6.873438</text>
+<line x1="361.5" y1="380" x2="574.7" y2="380" stroke="#047857" stroke-width="2.5" marker-start="url(#m_data)" marker-end="url(#m_ink)"/>
+<text x="469.1" y="398" font-size="11.5" fill="#047857">真 −0.816993（窗内，余仅 0.083）</text>
+<text x="912.6" y="398" font-size="11.5" fill="#b91c1c">假 −2.585920（csv 现值）</text>
+<text x="60" y="416" font-size="11.5" fill="#b45309">判读窗：1p [−3.5:+3.5] / dplc [−0.9:+4.1]（ymzhu 2026-10-08 口径，merge_sd_busskew.pl L61-77 硬编码，仓库无书面 spec）</text>
+<text x="60" y="433" font-size="11" class="mut">margin_max = data_max − clk_min（对偶式，1028 全部 ≤ +4.1 ✓）；margin_a 行：CLKA 两模式恒 SD_CLK_INV（DTCTL.v:791/823）→ dplc 行数值 = 1p 行</text>
+<text x="60" y="450" font-size="11" class="mut">sd_r_dplc_margin_a_min 六角 −0.99~−2.07 属（标签口径出窗）：dplc 窗套 a 侧无规格依据（四份文档均只用于 b 侧），待规格收口，不判真违例</text>
+<rect class="fade" style="animation-delay:.15s" x="40" y="496" width="1360" height="360" rx="2" fill="#fffdf7" stroke="#c9bfa8" stroke-width="1.5"/>
+<text x="60" y="524" font-size="16.5" font-weight="bold" letter-spacing="0.05em">② 污染机制 — 探针少写一层层次 → UITE-416 → catch-all → 数据路径冒充时钟</text>
+<rect x="56" y="540" width="238" height="74" rx="3" fill="#fffdf7" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="175" y="569" font-size="12" text-anchor="middle" fill="#1c2534" class="mono">tcl L157/158</text>
+<text x="175" y="589" font-size="10.5" text-anchor="middle" class="mut">-from .../u_gate_MUX_DPLC_CLK/O
+✗ 少写 CLKMUX2X2/ 层</text>
+<rect x="336" y="540" width="200" height="74" rx="3" fill="#fffdf7" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="436" y="569" font-size="12" text-anchor="middle" fill="#1c2534" class="mono">get_pins 空 collection</text>
+<text x="436" y="589" font-size="10.5" text-anchor="middle" class="mut">SEL 无匹配 → from 失效</text>
+<rect x="578" y="540" width="226" height="74" rx="3" fill="#fffdf7" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="691" y="569" font-size="12" text-anchor="middle" fill="#1c2534" class="mono">UITE-416 警告</text>
+<text x="691" y="589" font-size="10.5" text-anchor="middle" class="mut">1 invalid start point
+(rpt L14，仅警告不拦截)</text>
+<rect x="846" y="540" width="232" height="74" rx="3" fill="#fffdf7" stroke="#b45309" stroke-width="1.8"/>
+<text x="962" y="569" font-size="12" text-anchor="middle" fill="#1c2534" class="mono">退化为 -to CLKB catch-all</text>
+<text x="962" y="589" font-size="10.5" text-anchor="middle" class="mut">全部到端口的受限路径</text>
+<rect x="1118" y="540" width="256" height="74" rx="3" fill="#fffdf7" stroke="#b45309" stroke-width="1.8"/>
+<text x="1246" y="569" font-size="12" text-anchor="middle" fill="#1c2534" class="mono">74 条混入</text>
+<text x="1246" y="589" font-size="10.5" text-anchor="middle" class="mut">6 真 DPLC + 12 SD 时钟
++ 56 条 WCLK1 数据路径</text>
+<line x1="294" y1="577" x2="336" y2="577" stroke="#b91c1c" stroke-width="2" marker-end="url(#m_red)"/>
+<line x1="536" y1="577" x2="578" y2="577" stroke="#b91c1c" stroke-width="2" marker-end="url(#m_red)"/>
+<line x1="804" y1="577" x2="846" y2="577" stroke="#b91c1c" stroke-width="2" marker-end="url(#m_red)"/>
+<line x1="1078" y1="577" x2="1118" y2="577" stroke="#b45309" stroke-width="2" marker-end="url(#m_amber)"/>
+<text x="700" y="652" font-size="12" class="mut">↓ get_sd_busskew.pl L39/L108：取全部非负 arrival 的 max/min → 7.238948 / 4.157456 冒充 DPLC 时钟到达 → margin_b 假出窗</text>
+<text x="60" y="692" font-size="12.5" font-weight="bold">真路径（RTL/SDC 事实）与泄漏支路：</text>
+<rect x="56" y="706" width="250" height="40" rx="3" fill="#fffdf7" stroke="#1c2534" stroke-width="1.6" class="n_clksrc pulse"/>
+<text x="181" y="730" font-size="11" text-anchor="middle">CLKGEN u_gate_MUX_DPLC_CLK/CLKMUX2X2/O</text>
+<rect x="348" y="706" width="190" height="40" rx="3" fill="#fffdf7" stroke="#1c2534" stroke-width="1.6" class=""/>
+<text x="443" y="730" font-size="11" text-anchor="middle">ICG clkb_1st/2nd_dplc</text>
+<rect x="580" y="706" width="210" height="40" rx="3" fill="#fffdf7" stroke="#1c2534" stroke-width="1.6" class="n_mux"/>
+<text x="685" y="730" font-size="11" text-anchor="middle">MUX_clkb_1st/2nd  S=DPLC_MODE</text>
+<rect x="832" y="706" width="200" height="40" rx="3" fill="#fffdf7" stroke="#1c2534" stroke-width="1.6" class=""/>
+<text x="932" y="730" font-size="11" text-anchor="middle">CTS 时钟树 → C_76__IOBUF</text>
+<rect x="1074" y="706" width="140" height="40" rx="3" fill="#fffdf7" stroke="#1c2534" stroke-width="1.6" class=""/>
+<text x="1144" y="730" font-size="11" text-anchor="middle">CLKB_L/R 端口</text>
+<text x="1144" y="722" font-size="10" text-anchor="middle" fill="#b45309" class="mono">set_max_delay 14</text>
+<line x1="306" y1="726" x2="348" y2="726" stroke="#1c2534" stroke-width="2" marker-end="url(#m_ink)"/>
+<line x1="538" y1="726" x2="580" y2="726" stroke="#1c2534" stroke-width="2" marker-end="url(#m_ink)"/>
+<line x1="790" y1="726" x2="832" y2="726" stroke="#1c2534" stroke-width="2" marker-end="url(#m_ink)"/>
+<line x1="1032" y1="726" x2="1074" y2="726" stroke="#1c2534" stroke-width="2" marker-end="url(#m_ink)"/>
+<rect x="430" y="770" width="330" height="40" rx="3" fill="#fffdf7" stroke="#b91c1c" stroke-width="1.6" class="n_leak pulse" style="animation-delay:-1.4s"/>
+<text x="595" y="794" font-size="11" text-anchor="middle">R_REG05_F / R_REG06_F @WCLK1（LC_CPUWR 配置寄存器）</text>
+<line x1="700" y1="770" x2="660" y2="746" stroke="#b91c1c" stroke-width="2" marker-end="url(#m_red)"/>
+<text x="800" y="796" font-size="11.5" fill="#b91c1c">数据经 mode MUX 的 S 脚组合穿透到 O，再搭同一棵时钟树到端口 → 被 max_delay 14 约束 → 可报告</text>
+<text x="60" y="836" font-size="11.5" class="mut">对照：其余 6 个时钟探针全部带单元层（.../u_gate_INV_SD_CLK_INV/CLKINVX4/O ✓）→ 1p clk_a/b 报告 12 条纯时钟路径、无警告；连"正确答案"注释（tcl L121 / ip_cons L132）都把 CLKMUX2X2 误写成 MUX2X2</text>
+<text x="60" y="852" font-size="11.5" class="mut">教训重演：09/16 遗留问题 L46 已记"UITE-416 非法起点回退产生假得合理的 margin，空/回退报告必须显式留空+点名"；09/18 新增的 dplc 探针又踩同一坑且未触发任何哨兵</text>
+<rect class="fade" style="animation-delay:.3s" x="40" y="876" width="1360" height="330" rx="2" fill="#fffdf7" stroke="#c9bfa8" stroke-width="1.5"/>
+<text x="60" y="904" font-size="16.5" font-weight="bold" letter-spacing="0.05em">③ phy csv 的 rx0_00 行 = 最差 setup / hold slack（且 max/min 两行不是同一类路径）—— 不是skew 最大/最小</text>
+<text x="70" y="928" font-size="13.5" font-weight="bold">HK1V11（1028 latest）</text>
+<line x1="104" y1="1010" x2="710" y2="1010" stroke="#5b6675" stroke-width="1.5"/>
+<line x1="104.0" y1="1004" x2="104.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="104.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">0</text>
+<line x1="125.0" y1="1004" x2="125.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="125.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">2</text>
+<line x1="146.0" y1="1004" x2="146.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="146.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">4</text>
+<line x1="167.0" y1="1004" x2="167.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="167.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">6</text>
+<line x1="188.0" y1="1004" x2="188.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="188.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">8</text>
+<line x1="209.0" y1="1004" x2="209.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="209.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">10</text>
+<text x="142" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 142,1036)">wc_cworst</text>
+<rect x="108" y="988.5" width="26" height="21.5" fill="#b45309" class="row"/>
+<text x="121" y="984.5" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">2.05</text>
+<rect x="140" y="1009.1" width="26" height="1.2" fill="#0e7490" class="row"/>
+<text x="153" y="1005.1" font-size="8.5" text-anchor="middle" fill="#0e7490" class="mono">0.082</text>
+<text x="206" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 206,1036)">wc_cbest</text>
+<rect x="172" y="988.3" width="26" height="21.7" fill="#b45309" class="row"/>
+<text x="185" y="984.3" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">2.063</text>
+<rect x="204" y="1010.0" width="26" height="1.2" fill="#0e7490" class="row"/>
+<text x="217" y="1021.2" font-size="8.5" text-anchor="middle" fill="#0e7490" class="mono">-0.052</text>
+<text x="270" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 270,1036)">wc_typ</text>
+<rect x="236" y="988.6" width="26" height="21.4" fill="#b45309" class="row"/>
+<text x="249" y="984.6" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">2.04</text>
+<rect x="268" y="1009.5" width="26" height="1.2" fill="#0e7490" class="row"/>
+<text x="281" y="1005.5" font-size="8.5" text-anchor="middle" fill="#0e7490" class="mono">0.046</text>
+<text x="334" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 334,1036)">lt_cworst</text>
+<rect x="300" y="1005.3" width="26" height="4.7" fill="#b45309" class="row"/>
+<text x="313" y="1001.3" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">0.448</text>
+<rect x="332" y="1010.0" width="26" height="1.2" fill="#0e7490" class="row"/>
+<text x="345" y="1006.0" font-size="8.5" text-anchor="middle" fill="#0e7490" class="mono">0.004</text>
+<text x="398" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 398,1036)">lt_cbest</text>
+<rect x="364" y="1004.2" width="26" height="5.8" fill="#b45309" class="row"/>
+<text x="377" y="1000.2" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">0.549</text>
+<rect x="396" y="1010.0" width="26" height="1.2" fill="#0e7490" class="row"/>
+<text x="409" y="1006.0" font-size="8.5" text-anchor="middle" fill="#0e7490" class="mono">0.004</text>
+<text x="462" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 462,1036)">lt_typ</text>
+<rect x="428" y="1005.0" width="26" height="5.0" fill="#b45309" class="row"/>
+<text x="441" y="1001.0" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">0.479</text>
+<rect x="460" y="1010.0" width="26" height="1.2" fill="#0e7490" class="row"/>
+<text x="473" y="1021.2" font-size="8.5" text-anchor="middle" fill="#0e7490" class="mono">-0</text>
+<text x="526" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 526,1036)">ml_cbest</text>
+<rect x="492" y="999.9" width="26" height="10.1" fill="#b45309" class="row"/>
+<text x="505" y="995.9" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">0.966</text>
+<rect x="524" y="1009.6" width="26" height="1.2" fill="#0e7490" class="row"/>
+<text x="537" y="1005.6" font-size="8.5" text-anchor="middle" fill="#0e7490" class="mono">0.041</text>
+<text x="590" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 590,1036)">tt_cworst</text>
+<rect x="556" y="999.7" width="26" height="10.3" fill="#b45309" class="row"/>
+<text x="569" y="995.7" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">0.98</text>
+<rect x="588" y="1009.1" width="26" height="1.2" fill="#0e7490" class="row"/>
+<text x="601" y="1005.1" font-size="8.5" text-anchor="middle" fill="#0e7490" class="mono">0.089</text>
+<text x="654" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 654,1036)">tt_cbest</text>
+<rect x="620" y="998.6" width="26" height="11.4" fill="#b45309" class="row"/>
+<text x="633" y="994.6" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">1.086</text>
+<rect x="652" y="1009.1" width="26" height="1.2" fill="#0e7490" class="row"/>
+<text x="665" y="1005.1" font-size="8.5" text-anchor="middle" fill="#0e7490" class="mono">0.088</text>
+<text x="718" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 718,1036)">tt_typ</text>
+<rect x="684" y="999.5" width="26" height="10.5" fill="#b45309" class="row"/>
+<text x="697" y="995.5" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">0.999</text>
+<rect x="716" y="1009.1" width="26" height="1.2" fill="#0e7490" class="row"/>
+<text x="729" y="1005.1" font-size="8.5" text-anchor="middle" fill="#0e7490" class="mono">0.088</text>
+<rect x="110" y="1096" width="18" height="4" fill="#b45309"/>
+<text x="134" y="1102" font-size="12">rx0_00_max（setup slack）</text>
+<rect x="295" y="1096" width="18" height="4" fill="#0e7490"/>
+<text x="319" y="1102" font-size="12">rx0_00_min（hold slack）</text>
+<text x="110" y="1116" font-size="11" fill="#b91c1c">max 行 = FF→FF setup（借 3.81ns 周期）；min 行 = port→FF hold（±0.3 input delay 模型）</text>
+<text x="70" y="1152" font-size="10.5" fill="#b91c1c">两角真违例：wc_cbest −0.051536（dout_lane[5]→SYNC port→FF 族，~50ps 多 bit 同族）</text>
+<text x="70" y="1170" font-size="10.5" fill="#b91c1c">lt_typ −0.000113（FF→FF 噪声级）；rpt 头 -input_pins 与磁盘 tcl 漂移不改数值</text>
+<text x="740" y="928" font-size="13.5" font-weight="bold">HV2M23（latest_1p 对照）</text>
+<line x1="774" y1="1010" x2="1380" y2="1010" stroke="#5b6675" stroke-width="1.5"/>
+<line x1="774.0" y1="1004" x2="774.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="774.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">0</text>
+<line x1="795.0" y1="1004" x2="795.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="795.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">2</text>
+<line x1="816.0" y1="1004" x2="816.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="816.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">4</text>
+<line x1="837.0" y1="1004" x2="837.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="837.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">6</text>
+<line x1="858.0" y1="1004" x2="858.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="858.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">8</text>
+<line x1="879.0" y1="1004" x2="879.0" y2="1013" stroke="#ddd6c8" stroke-width="0.6"/>
+<text x="879.0" y="1026" font-size="9.5" text-anchor="middle" class="mono mut">10</text>
+<text x="812" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 812,1036)">wc_cworst</text>
+<rect x="778" y="983.9" width="26" height="26.1" fill="#b45309" class="row"/>
+<text x="791" y="979.9" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">2.489</text>
+<rect x="810" y="934.0" width="26" height="76.0" fill="#1d4ed8" class="row"/>
+<text x="823" y="930.0" font-size="8.5" text-anchor="middle" fill="#1d4ed8" class="mono">7.237</text>
+<text x="876" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 876,1036)">wc_cbest</text>
+<rect x="842" y="981.7" width="26" height="28.3" fill="#b45309" class="row"/>
+<text x="855" y="977.7" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">2.691</text>
+<rect x="874" y="936.2" width="26" height="73.8" fill="#1d4ed8" class="row"/>
+<text x="887" y="932.2" font-size="8.5" text-anchor="middle" fill="#1d4ed8" class="mono">7.026</text>
+<text x="940" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 940,1036)">wc_typ</text>
+<rect x="906" y="983.1" width="26" height="26.9" fill="#b45309" class="row"/>
+<text x="919" y="979.1" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">2.558</text>
+<rect x="938" y="934.8" width="26" height="75.2" fill="#1d4ed8" class="row"/>
+<text x="951" y="930.8" font-size="8.5" text-anchor="middle" fill="#1d4ed8" class="mono">7.161</text>
+<text x="1004" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 1004,1036)">lt_cworst</text>
+<rect x="970" y="1000.4" width="26" height="9.6" fill="#b45309" class="row"/>
+<text x="983" y="996.4" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">0.915</text>
+<rect x="1002" y="915.3" width="26" height="94.7" fill="#1d4ed8" class="row"/>
+<text x="1015" y="911.3" font-size="8.5" text-anchor="middle" fill="#1d4ed8" class="mono">9.015</text>
+<text x="1068" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 1068,1036)">lt_cbest</text>
+<rect x="1034" y="998.9" width="26" height="11.1" fill="#b45309" class="row"/>
+<text x="1047" y="994.9" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">1.06</text>
+<rect x="1066" y="917.0" width="26" height="93.0" fill="#1d4ed8" class="row"/>
+<text x="1079" y="913.0" font-size="8.5" text-anchor="middle" fill="#1d4ed8" class="mono">8.859</text>
+<text x="1132" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 1132,1036)">lt_typ</text>
+<rect x="1098" y="999.8" width="26" height="10.2" fill="#b45309" class="row"/>
+<text x="1111" y="995.8" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">0.969</text>
+<rect x="1130" y="916.5" width="26" height="93.5" fill="#1d4ed8" class="row"/>
+<text x="1143" y="912.5" font-size="8.5" text-anchor="middle" fill="#1d4ed8" class="mono">8.9</text>
+<text x="1196" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 1196,1036)">ml_cbest</text>
+<rect x="1162" y="995.6" width="26" height="14.4" fill="#b45309" class="row"/>
+<text x="1175" y="991.6" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">1.368</text>
+<rect x="1194" y="920.8" width="26" height="89.2" fill="#1d4ed8" class="row"/>
+<text x="1207" y="916.8" font-size="8.5" text-anchor="middle" fill="#1d4ed8" class="mono">8.5</text>
+<text x="1260" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 1260,1036)">tt_cworst</text>
+<rect x="1226" y="995.9" width="26" height="14.1" fill="#b45309" class="row"/>
+<text x="1239" y="991.9" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">1.341</text>
+<rect x="1258" y="920.3" width="26" height="89.7" fill="#1d4ed8" class="row"/>
+<text x="1271" y="916.3" font-size="8.5" text-anchor="middle" fill="#1d4ed8" class="mono">8.54</text>
+<text x="1324" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 1324,1036)">tt_cbest</text>
+<rect x="1290" y="994.1" width="26" height="15.9" fill="#b45309" class="row"/>
+<text x="1303" y="990.1" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">1.511</text>
+<rect x="1322" y="922.2" width="26" height="87.8" fill="#1d4ed8" class="row"/>
+<text x="1335" y="918.2" font-size="8.5" text-anchor="middle" fill="#1d4ed8" class="mono">8.358</text>
+<text x="1388" y="1036" font-size="9" text-anchor="end" class="mono mut" transform="rotate(42 1388,1036)">tt_typ</text>
+<rect x="1354" y="998.9" width="26" height="11.1" fill="#b45309" class="row"/>
+<text x="1367" y="994.9" font-size="8.5" text-anchor="middle" fill="#b45309" class="mono">1.06</text>
+<rect x="1386" y="917.0" width="26" height="93.0" fill="#1d4ed8" class="row"/>
+<text x="1399" y="913.0" font-size="8.5" text-anchor="middle" fill="#1d4ed8" class="mono">8.859</text>
+<rect x="780" y="1096" width="18" height="4" fill="#b45309"/>
+<text x="804" y="1102" font-size="12">rx0_00_max（setup slack）</text>
+<rect x="965" y="1096" width="18" height="4" fill="#1d4ed8"/>
+<text x="989" y="1102" font-size="12">rx0_00_min（hold slack）</text>
+<text x="780" y="1116" font-size="11" fill="#1d4ed8">min 行 7.0~9.0：DIV2 整周期边沿差 10.08 一项即达 slack 的 1.39 倍</text>
+<text x="740" y="1152" font-size="10.5" fill="#1d4ed8">（launch 12.6 vs capture 2.52 恰差 1 个 DIV2 周期 10.08，占数据到达 14.153 的 71%；input delay=0 且无 uncertainty）</text>
+<text x="740" y="1170" font-size="10.5" fill="#1d4ed8">跨项目差 ~6.7ns 属口径差非电路差，max−min 差距不能当裕度跨项目比</text>
+<rect class="fade" style="animation-delay:.45s" x="40" y="1226" width="1360" height="262" rx="2" fill="#fffdf7" stroke="#c9bfa8" stroke-width="1.5"/>
+<text x="60" y="1254" font-size="16.5" font-weight="bold" letter-spacing="0.05em">④ INPUT / OUTPUT / MAX_DELAY 三种约束如何决定 csv（有没有这行、行是什么）</text>
+<rect x="56" y="1266" width="424" height="188" rx="3" fill="#fffdf7" stroke="#c9bfa8" stroke-width="1.4"/>
+<rect x="56" y="1266" width="424" height="30" rx="3" fill="#1c2534"/>
+<text x="268" y="1286" font-size="13.5" font-weight="bold" text-anchor="middle" fill="#fffdf7">set_max_delay 14 -to CLKA/CLKB</text>
+<text x="72" y="1316" font-size="11.5" fill="#1c2534">→ sd/phy csv 的 8 个 clk 行存在；</text>
+<text x="72" y="1338" font-size="11.5" fill="#1c2534">   slack = 14 − arrival（8.155258 = 14 − 5.844742 实证）</text>
+<text x="72" y="1360" font-size="11.5" fill="#1c2534">→ 副作用：端口被约束后，经 mode MUX S 脚泄漏到</text>
+<text x="72" y="1382" font-size="11.5" fill="#b91c1c">   端口的数据路径也变成（可报告路径）——污染可见的前提</text>
+<text x="72" y="1404" font-size="11.5" fill="#5b6675">（若无此约束 → 'No constrained paths.' 空报告 + 0/1000 哨兵，</text>
+<text x="72" y="1426" font-size="11.5" fill="#5b6675">   即 09-16 round2 那一轮 −99x 告警）</text>
+<rect x="506" y="1266" width="424" height="188" rx="3" fill="#fffdf7" stroke="#c9bfa8" stroke-width="1.4"/>
+<rect x="506" y="1266" width="424" height="30" rx="3" fill="#b45309"/>
+<text x="718" y="1286" font-size="13.5" font-weight="bold" text-anchor="middle" fill="#fffdf7">set_output_delay（SDA_OE）</text>
+<text x="522" y="1316" font-size="11.5" fill="#1c2534">1V11 无 → io 报告 736B 'No constrained paths.'×2</text>
+<text x="522" y="1338" font-size="11.5" fill="#1c2534">   → phy csv 无 io 行（本轮实锤）</text>
+<text x="522" y="1360" font-size="11.5" fill="#1c2534">2M23 有 ±1（read_cons L987-989）+ I2C_CLK 500ns</text>
+<text x="522" y="1382" font-size="11.5" fill="#1c2534">   → io_max 241.741440 / io_min 251.998322</text>
+<text x="522" y="1404" font-size="11.5" fill="#5b6675">   （I2C_BIT_CNT_reg_1_ → I2C_SDA_OE，required 497.0</text>
+<text x="522" y="1426" font-size="11.5" fill="#5b6675">    = 500 − 2.0 − 1.0）</text>
+<rect x="956" y="1266" width="424" height="188" rx="3" fill="#fffdf7" stroke="#c9bfa8" stroke-width="1.4"/>
+<rect x="956" y="1266" width="424" height="30" rx="3" fill="#0e7490"/>
+<text x="1168" y="1286" font-size="13.5" font-weight="bold" text-anchor="middle" fill="#fffdf7">set_input_delay（RX/SCL 侧）</text>
+<text x="972" y="1316" font-size="11.5" fill="#1c2534">1V11 dout_lane[*] 有 ±0.3（read_cons L1005-1023）</text>
+<text x="972" y="1338" font-size="11.5" fill="#1c2534">   → port→FF hold 受限：min 行 0.081905 贴线由此而来</text>
+<text x="972" y="1360" font-size="11.5" fill="#5b6675">   （±0.3 模型 + uncertainty 0.15 吃满 3.81ns 窗口）</text>
+<text x="972" y="1382" font-size="11.5" fill="#1c2534">2M23 同口 input delay=0 且 DIV2 无 uncertainty → min 7~9</text>
+<text x="972" y="1404" font-size="11.5" fill="#b45309">结论：换约束 = 换窗口；跨项目/跨代比较 csv 前先对齐约束</text>
+<text x="60" y="1476" font-size="11" class="mut">数据源：HK1V11 1028 latest（wc_cworst_125 为主证角，10 角同构）· HV2M23 latest_1p · 枚举证据见 docs/HK1V11_skew_probe_audit_20261028.md</text>
+<text x="60" y="1492" font-size="11" class="mut">机制链：report_timing_skew_sd/isprx/io.tcl → get_*.pl → merge_*.pl → summary/latest/*.csv</text>
+<linearGradient id="sweepG-1" gradientUnits="userSpaceOnUse" x1="130" y1="0" x2="1570" y2="0"><stop offset="0" stop-color="#b45309" stop-opacity="0"/><stop offset="0.46" stop-color="#b45309" stop-opacity="0"/><stop offset="0.5" stop-color="#b45309" stop-opacity="0.3"/><stop offset="0.54" stop-color="#b45309" stop-opacity="0"/><stop offset="1" stop-color="#b45309" stop-opacity="0"/></linearGradient>
+<clipPath id="sweepC-1"><rect x="130" y="150" width="1200" height="150"/></clipPath>
+<path class="flowdot" d="M 66 726 H 1200" pathLength="100" stroke="#1c2534"/>
+<path class="flowdot" style="animation-duration:1.1s;animation-delay:-.6s" d="M 700 772 L 662 748" pathLength="100" stroke="#b91c1c"/>
+<g clip-path="url(#sweepC-1)"><rect class="sweepband" x="130" y="150" width="1440" height="150" fill="url(#sweepG-1)" style="--sweepP:1440px"/></g>
+<!-- ymzhu 2026-10-28 18:35 -->
+</svg>
