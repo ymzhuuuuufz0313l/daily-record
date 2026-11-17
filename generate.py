@@ -334,7 +334,7 @@ def render_html(file_list, contents):
       for (const dirName of Object.keys(dirs).sort()) {{
         const fullPath = parentPath ? parentPath + "/" + dirName : dirName;
         html += `<div class="dir" onclick="toggleDir(this)">📁 ${{dirName}}</div>`;
-        html += `<div class="dir-children" style="display:block">${{renderTree(dirs[dirName], fullPath)}}</div>`;
+        html += `<div class="dir-children" style="display:none">${{renderTree(dirs[dirName], fullPath)}}</div>`;
       }}
 
       for (const file of files.sort().reverse()) {{
