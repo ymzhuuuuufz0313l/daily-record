@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1494" height="641" viewBox="0 0 1494 641">
+  <title>HK1V11 (1117) 三档功耗</title>
+  <style>text{font-family:Consolas,'Microsoft YaHei',monospace;font-size:44px;}</style>
+  <rect x="0" y="0" width="1494" height="641" fill="rgb(255,255,255)" />
+  <rect x="0" y="0" width="1494" height="120" fill="rgb(28,37,52)" />
+  <text x="40" y="57" fill="rgb(244,241,234)" font-weight="bold">HK1V11 (1117) 三档功耗</text>
+  <rect x="0" y="120" width="1494" height="104" fill="rgb(28,37,52)" />
+  <text x="40" y="177" fill="rgb(244,241,234)" font-weight="bold">Clk</text>
+  <text x="409" y="177" fill="rgb(244,241,234)" text-anchor="end" font-weight="bold">Process</text>
+  <text x="634" y="177" fill="rgb(244,241,234)" text-anchor="end" font-weight="bold">Area</text>
+  <text x="810" y="177" fill="rgb(244,241,234)" text-anchor="end" font-weight="bold">Lane</text>
+  <text x="1156" y="177" fill="rgb(244,241,234)" text-anchor="end" font-weight="bold">Normal (mW)</text>
+  <text x="1453" y="177" fill="rgb(244,241,234)" text-anchor="end" font-weight="bold">DPLC (mW)</text>
+  <rect x="1" y="225" width="199" height="87" fill="rgb(237,233,254)" />
+  <text x="40" y="273" fill="rgb(28,37,52)" font-weight="bold">3G</text>
+  <rect x="201" y="225" width="248" height="87" fill="rgb(237,233,254)" />
+  <text x="409" y="273" fill="rgb(28,37,52)" text-anchor="end">145</text>
+  <rect x="450" y="225" width="224" height="87" fill="rgb(237,233,254)" />
+  <text x="634" y="273" fill="rgb(28,37,52)" text-anchor="end">310144</text>
+  <rect x="675" y="225" width="175" height="87" fill="rgb(237,233,254)" />
+  <text x="810" y="273" fill="rgb(28,37,52)" text-anchor="end">1L</text>
+  <rect x="851" y="225" width="345" height="87" fill="rgb(237,233,254)" />
+  <text x="1156" y="273" fill="rgb(109,40,217)" text-anchor="end" font-weight="bold">18.47</text>
+  <rect x="1197" y="225" width="296" height="87" fill="rgb(237,233,254)" />
+  <text x="1453" y="273" fill="rgb(28,37,52)" text-anchor="end">18.087</text>
+  <rect x="1" y="313" width="199" height="87" fill="rgb(237,233,254)" />
+  <text x="40" y="361" fill="rgb(28,37,52)" font-weight="bold">4G</text>
+  <rect x="201" y="313" width="248" height="87" fill="rgb(237,233,254)" />
+  <text x="409" y="361" fill="rgb(28,37,52)" text-anchor="end">145</text>
+  <rect x="450" y="313" width="224" height="87" fill="rgb(237,233,254)" />
+  <text x="634" y="361" fill="rgb(28,37,52)" text-anchor="end">310144</text>
+  <rect x="675" y="313" width="175" height="87" fill="rgb(237,233,254)" />
+  <text x="810" y="361" fill="rgb(28,37,52)" text-anchor="end">1L</text>
+  <rect x="851" y="313" width="345" height="87" fill="rgb(237,233,254)" />
+  <text x="1156" y="361" fill="rgb(109,40,217)" text-anchor="end" font-weight="bold">24.15</text>
+  <rect x="1197" y="313" width="296" height="87" fill="rgb(237,233,254)" />
+  <text x="1453" y="361" fill="rgb(28,37,52)" text-anchor="end">-</text>
+  <rect x="1" y="401" width="199" height="87" fill="rgb(237,233,254)" />
+  <text x="40" y="449" fill="rgb(28,37,52)" font-weight="bold">4.46G</text>
+  <rect x="201" y="401" width="248" height="87" fill="rgb(237,233,254)" />
+  <text x="409" y="449" fill="rgb(28,37,52)" text-anchor="end">145</text>
+  <rect x="450" y="401" width="224" height="87" fill="rgb(237,233,254)" />
+  <text x="634" y="449" fill="rgb(28,37,52)" text-anchor="end">310144</text>
+  <rect x="675" y="401" width="175" height="87" fill="rgb(237,233,254)" />
+  <text x="810" y="449" fill="rgb(28,37,52)" text-anchor="end">1L</text>
+  <rect x="851" y="401" width="345" height="87" fill="rgb(237,233,254)" />
+  <text x="1156" y="449" fill="rgb(109,40,217)" text-anchor="end" font-weight="bold">27.04</text>
+  <rect x="1197" y="401" width="296" height="87" fill="rgb(237,233,254)" />
+  <text x="1453" y="449" fill="rgb(28,37,52)" text-anchor="end">-</text>
+  <line x1="0" y1="120" x2="0" y2="641" stroke="rgb(221,214,200)" stroke-width="1" />
+  <line x1="200" y1="120" x2="200" y2="641" stroke="rgb(221,214,200)" stroke-width="1" />
+  <line x1="449" y1="120" x2="449" y2="641" stroke="rgb(221,214,200)" stroke-width="1" />
+  <line x1="674" y1="120" x2="674" y2="641" stroke="rgb(221,214,200)" stroke-width="1" />
+  <line x1="850" y1="120" x2="850" y2="641" stroke="rgb(221,214,200)" stroke-width="1" />
+  <line x1="1196" y1="120" x2="1196" y2="641" stroke="rgb(221,214,200)" stroke-width="1" />
+  <line x1="1493" y1="120" x2="1493" y2="641" stroke="rgb(221,214,200)" stroke-width="1" />
+  <line x1="0" y1="120" x2="1494" y2="120" stroke="rgb(221,214,200)" stroke-width="1" />
+  <line x1="0" y1="224" x2="1494" y2="224" stroke="rgb(221,214,200)" stroke-width="1" />
+  <line x1="0" y1="312" x2="1494" y2="312" stroke="rgb(221,214,200)" stroke-width="1" />
+  <line x1="0" y1="400" x2="1494" y2="400" stroke="rgb(221,214,200)" stroke-width="1" />
+  <text x="32" y="559" fill="rgb(91,102,117)">数据：powerpro 1117 代 rep_dir_1lane 三档 hier_pwr_detail.csv</text>
+  <text x="32" y="611" fill="rgb(91,102,117)">（Initial Design）</text>
+  <rect x="0.5" y="0.5" width="1493" height="640" fill="none" stroke="rgb(201,191,168)" stroke-width="4" />
+</svg>

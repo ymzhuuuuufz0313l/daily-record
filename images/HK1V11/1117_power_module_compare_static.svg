@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 688" width="1260" height="688" role="img" aria-label="1V11 vs 1V22 模块功耗对比 @4.46G">
+  <title>1V11 vs 1V22 模块功耗对比 @4.46G</title>
+  <style>
+    text{font-family:"Microsoft YaHei",sans-serif;fill:#1c2534}
+    .mono{font-family:ui-monospace,Consolas,monospace}
+    .hdr{transform-origin:left center;font-size:12px;fill:#5b6675;transform-origin:left center}
+  </style>
+  <defs>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+    <linearGradient id="sweepGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fffdf7" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#fffdf7" stop-opacity="1"/>
+      <stop offset="1" stop-color="#fffdf7" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1260" height="688" fill="#f4f1ea"/>
+
+  <!-- 网格 + 轴 + 刻度 -->
+  <g class="hdr">
+    <g stroke="#ddd6c8" stroke-width="1" stroke-dasharray="4 4" opacity="0.85">
+      <line x1="389" y1="70" x2="389" y2="620"/>
+      <line x1="568.1" y1="70" x2="568.1" y2="620"/>
+      <line x1="747.1" y1="70" x2="747.1" y2="620"/>
+      <line x1="926.2" y1="70" x2="926.2" y2="620"/>
+      <line x1="1105.2" y1="70" x2="1105.2" y2="620"/>
+    </g>
+    <g stroke="#5b6675" stroke-width="1" opacity="0.55">
+      <line x1="210" y1="70" x2="210" y2="620"/>
+      <line x1="210" y1="620" x2="1150" y2="620"/>
+      <line x1="210" y1="620" x2="210" y2="625"/>
+      <line x1="389" y1="620" x2="389" y2="625"/>
+      <line x1="568.1" y1="620" x2="568.1" y2="625"/>
+      <line x1="747.1" y1="620" x2="747.1" y2="625"/>
+      <line x1="926.2" y1="620" x2="926.2" y2="625"/>
+      <line x1="1105.2" y1="620" x2="1105.2" y2="625"/>
+    </g>
+    <g class="mono" font-size="12" fill="#5b6675" text-anchor="middle">
+      <text x="210" y="638">0</text>
+      <text x="389" y="638">2000</text>
+      <text x="568.1" y="638">4000</text>
+      <text x="747.1" y="638">6000</text>
+      <text x="926.2" y="638">8000</text>
+      <text x="1105.2" y="638">10000</text>
+    </g>
+    <text class="mono" x="680" y="662" font-size="13" fill="#5b6675" text-anchor="middle">Power (µW)</text>
+  </g>
+
+  <!-- 模块名（双行，逐字转录自 mods） -->
+  <g class="hdr" font-size="13" text-anchor="end" fill="#1c2534">
+    <text data-label="1" data-g="0" x="200" y="91">短编码解码<tspan x="200" y="107" font-size="11" class="mono">SHORT_ENCODING↔CSPIF</tspan></text>
+    <text data-label="1" data-g="1" x="200" y="141">显示时序<tspan x="200" y="157" font-size="11" class="mono">DTCTL↔TOTAL_DTCTL</tspan></text>
+    <text data-label="1" data-g="2" x="200" y="191">面板SD时序<tspan x="200" y="207" font-size="11" class="mono">PANEL_CTRL(融合)</tspan></text>
+    <text data-label="1" data-g="3" x="200" y="241">输入同步<tspan x="200" y="257" font-size="11" class="mono">BUFFER_I→rx_phy</tspan></text>
+    <text data-label="1" data-g="4" x="200" y="291">长编码<tspan x="200" y="307" font-size="11" class="mono">LONG_ENCODING</tspan></text>
+    <text data-label="1" data-g="5" x="200" y="341">寄存器配置<tspan x="200" y="357" font-size="11" class="mono">CONFIG↔CPUWR</tspan></text>
+    <text data-label="1" data-g="6" x="200" y="399" font-size="12" class="mono">ANCTL</text>
+    <text data-label="1" data-g="7" x="200" y="441">时钟生成<tspan x="200" y="457" font-size="11" class="mono">CLKGEN↔CLKGEN_U0</tspan></text>
+    <text data-label="1" data-g="8" x="200" y="499">其他小模块</text>
+    <text data-label="1" data-g="9" x="200" y="541">rx_phy(EQ/LEQ)<tspan x="200" y="557" font-size="11">1V22独有</tspan></text>
+    <text data-label="1" data-g="10" x="200" y="591">MON_DISP<tspan x="200" y="607" font-size="11">1V22独有</tspan></text>
+  </g>
+
+  <!-- 双条：组 i 延时 .30s+.06s*i，自基线（左端）生长 -->
+  <g>
+    <!-- g0 短编码解码 10763.34 / 8590（1117 代 4.46G） -->
+    <rect class="bar" data-g="0" data-s="11" x="210" y="77" width="963.6" height="16" fill="#0e7490"/>
+    <rect class="bar" data-g="0" data-s="22" x="210" y="97" width="769" height="16" fill="#b45309"/>
+    <text class="val peak" data-g="0" data-s="11" x="1181.6" y="85" dominant-baseline="central">10763.34</text>
+    <text class="val" data-g="0" data-s="22" x="987" y="105" dominant-baseline="central">8590</text>
+    <!-- g1 显示时序 4874.10 / 3294 -->
+    <rect class="bar" data-g="1" data-s="11" x="210" y="127" width="436.3" height="16" fill="#0e7490"/>
+    <rect class="bar" data-g="1" data-s="22" x="210" y="147" width="294.9" height="16" fill="#b45309"/>
+    <text class="val" data-g="1" data-s="11" x="654.3" y="135" dominant-baseline="central">4874.10</text>
+    <text class="val" data-g="1" data-s="22" x="512.9" y="155" dominant-baseline="central">3294</text>
+    <!-- g2 面板SD时序 3127.70 / 0 -->
+    <rect class="bar" data-g="2" data-s="11" x="210" y="177" width="280.0" height="16" fill="#0e7490"/>
+    <text class="val" data-g="2" data-s="11" x="498.0" y="185" dominant-baseline="central">3127.70</text>
+    <text class="val" data-g="2" data-s="22" x="218" y="205" dominant-baseline="central">0</text>
+    <!-- g3 输入同步 2505.31 / 0 -->
+    <rect class="bar" data-g="3" data-s="11" x="210" y="227" width="224.3" height="16" fill="#0e7490"/>
+    <text class="val" data-g="3" data-s="11" x="442.3" y="235" dominant-baseline="central">2505.31</text>
+    <text class="val" data-g="3" data-s="22" x="218" y="255" dominant-baseline="central">0</text>
+    <!-- g4 长编码 885.54 / 0 -->
+    <rect class="bar" data-g="4" data-s="11" x="210" y="277" width="79.3" height="16" fill="#0e7490"/>
+    <text class="val" data-g="4" data-s="11" x="297.3" y="285" dominant-baseline="central">885.54</text>
+    <text class="val" data-g="4" data-s="22" x="218" y="305" dominant-baseline="central">0</text>
+    <!-- g5 寄存器配置 1600.46 / 727 -->
+    <rect class="bar" data-g="5" data-s="11" x="210" y="327" width="143.3" height="16" fill="#0e7490"/>
+    <rect class="bar" data-g="5" data-s="22" x="210" y="347" width="65.1" height="16" fill="#b45309"/>
+    <text class="val" data-g="5" data-s="11" x="361.3" y="335" dominant-baseline="central">1600.46</text>
+    <text class="val" data-g="5" data-s="22" x="283.1" y="355" dominant-baseline="central">727</text>
+    <!-- g6 ANCTL 1260.73 / 218 -->
+    <rect class="bar" data-g="6" data-s="11" x="210" y="377" width="112.9" height="16" fill="#0e7490"/>
+    <rect class="bar" data-g="6" data-s="22" x="210" y="397" width="19.5" height="16" fill="#b45309"/>
+    <text class="val" data-g="6" data-s="11" x="330.9" y="385" dominant-baseline="central">1260.73</text>
+    <text class="val" data-g="6" data-s="22" x="237.5" y="405" dominant-baseline="central">218</text>
+    <!-- g7 时钟生成 526.81 / 8 -->
+    <rect class="bar" data-g="7" data-s="11" x="210" y="427" width="47.2" height="16" fill="#0e7490"/>
+    <rect class="bar" data-g="7" data-s="22" x="210" y="447" width="0.7" height="16" fill="#b45309"/>
+    <text class="val" data-g="7" data-s="11" x="265.2" y="435" dominant-baseline="central">526.81</text>
+    <text class="val" data-g="7" data-s="22" x="218.7" y="455" dominant-baseline="central">8</text>
+    <!-- g8 其他小模块 1500.20 / 447（其他 = 旧 416 + 未分配残差 ≈1084，合并为使分组和=total） -->
+    <rect class="bar" data-g="8" data-s="11" x="210" y="477" width="134.3" height="16" fill="#0e7490"/>
+    <rect class="bar" data-g="8" data-s="22" x="210" y="497" width="40" height="16" fill="#b45309"/>
+    <text class="val" data-g="8" data-s="11" x="352.3" y="485" dominant-baseline="central">1500.20</text>
+    <text class="val" data-g="8" data-s="22" x="258" y="505" dominant-baseline="central">447</text>
+    <!-- g9 rx_phy(EQ/LEQ) 0 / 4196 -->
+    <rect class="bar" data-g="9" data-s="22" x="210" y="547" width="375.6" height="16" fill="#b45309"/>
+    <text class="val" data-g="9" data-s="11" x="218" y="535" dominant-baseline="central">0</text>
+    <text class="val" data-g="9" data-s="22" x="593.6" y="555" dominant-baseline="central">4196</text>
+    <!-- g10 MON_DISP 0 / 588 -->
+    <rect class="bar" data-g="10" data-s="22" x="210" y="597" width="52.6" height="16" fill="#b45309"/>
+    <text class="val" data-g="10" data-s="11" x="218" y="585" dominant-baseline="central">0</text>
+    <text class="val" data-g="10" data-s="22" x="270.6" y="605" dominant-baseline="central">588</text>
+  </g>
+
+  <!-- 持续柔光脉冲 -->
+  <rect class="glow" x="205" y="72" width="973.6" height="26" rx="8" fill="#0e7490" filter="url(#softGlow)"/>
+  <rect class="glow glow2" x="205" y="542" width="385.6" height="26" rx="8" fill="#b45309" filter="url(#softGlow)"/>
+
+  <!-- 图例 -->
+  <g class="hdr">
+    <rect x="872" y="552" width="316" height="56" rx="6" fill="#fffdf7" stroke="#ddd6c8" stroke-width="1"/>
+    <rect x="888" y="564" width="18" height="12" fill="#0e7490"/>
+    <text class="mono" x="914" y="574" font-size="12" fill="#1c2534">1V11 @4.46G (27.04 mW)</text>
+    <rect x="888" y="586" width="18" height="12" fill="#b45309"/>
+    <text class="mono" x="914" y="596" font-size="12" fill="#1c2534">1V22 @4.46G (18.97 mW)</text>
+  </g>
+
+  <!-- 标题 -->
+  <text class="hdr" x="630" y="38" font-size="20" font-weight="bold" text-anchor="middle" fill="#1c2534">1V11 vs 1V22 模块功耗对比 @4.46G</text>
+
+  <!-- 基线扫光 -->
+  <rect class="sweep" x="95" y="610" width="120" height="20" fill="#efe8d8"/>
+</svg>
+<!-- ymzhu 2026-11-17 15:53 -->
